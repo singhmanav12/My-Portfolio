@@ -1,37 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Mechanical button press effect
-    const buttons = document.querySelectorAll('.brutal-btn');
+    // 1. Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
     
-    buttons.forEach(btn => {
-        btn.addEventListener('mousedown', () => {
-            btn.classList.add('pressed');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
         });
-        
-        btn.addEventListener('mouseup', () => {
-            btn.classList.remove('pressed');
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-            btn.classList.remove('pressed');
-        });
+    }, {
+        root: null,
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
     });
 
-    // Terminal typing effect for cli-prompt
-    const promptText = "~/projects/portfolio$";
-    const promptElement = document.querySelector('.cli-prompt');
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Trigger hero animations immediately
+    setTimeout(() => {
+        const heroElements = document.querySelectorAll('.hero .reveal');
+        heroElements.forEach(el => el.classList.add('active'));
+    }, 100);
+
+    // 2. Mouse Glow Effect on Glass Cards
+    const cards = document.querySelectorAll('.glass-card');
     
-    // Clear and retype (optional cool effect on load)
-    if (promptElement) {
-        // Keep the blinker span
-        promptElement.innerHTML = '<span class="blink">_</span>';
-        let i = 0;
-        const typeWriter = () => {
-            if (i < promptText.length) {
-                promptElement.innerHTML = promptText.substring(0, i + 1) + ' <span class="blink">_</span>';
-                i++;
-                setTimeout(typeWriter, 50 + Math.random() * 50);
-            }
-        };
-        setTimeout(typeWriter, 500);
-    }
+    cards.forEach(card => {
+        const glow = card.querySelector('.card-glow');
+        if (!glow) return;
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            glow.style.left = `${x}px`;
+            glow.style.top = `${y}px`;
+        });
+    });
 });

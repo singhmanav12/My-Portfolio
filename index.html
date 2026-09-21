@@ -3,164 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manavendra Pratap Singh - Cloud Infrastructure & DevOps Engineer Portfolio">
-    <title>Manavendra Pratap Singh | DevOps Engineer</title>
+    <title>Manavendra Pratap Singh | Cloud & DevOps</title>
+    <!-- Premium Fonts: Outfit for display, Inter for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="terminal-overlay"></div>
-    <main class="container">
-        
-        <!-- Hero Section -->
-        <header class="hero section-card">
-            <div class="cli-prompt">~/projects/portfolio$ <span class="blink">_</span></div>
-            <h1 class="hero-name">MANAVENDRA<br>PRATAP SINGH</h1>
-            <div class="hero-meta">
-                <span class="badge">CLASS OF '28</span>
-                <span class="badge">ENTRY-LEVEL CLOUD & DEVOPS</span>
-            </div>
-            <h2 class="hero-headline">I BUILD SECURE INFRASTRUCTURE AND DESIGN OPTIMIZED CI/CD PIPELINES.</h2>
-            <div class="hero-actions">
-                <a href="#" class="brutal-btn primary">DOWNLOAD_RESUME.pdf</a>
-                <a href="mailto:pratapsinghmanav2006@gmail.com" class="brutal-btn secondary">SEND_MAIL.sh</a>
-            </div>
-        </header>
+    <!-- Animated background mesh -->
+    <div class="bg-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <div class="bg-noise"></div>
 
-        <!-- About Me / Server Log -->
-        <section class="about section-card">
-            <div class="section-header">
-                <h2>> cat about_me.txt</h2>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">MPS.</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-            <div class="about-content">
-                <p>Based in <strong>Indore, India</strong>. I'm a Computer Science undergrad at Shivajirao Kadam Institute of Technology and Management, specializing in cloud-hosted applications, containerization, and automated workflows.</p>
-                
-                <div class="bento-grid">
-                    <div class="bento-item tech-stack">
-                        <h3>[CORE_STACK]</h3>
-                        <ul class="tag-list">
-                            <li>AWS (EC2)</li>
-                            <li>Docker</li>
-                            <li>Kubernetes</li>
-                            <li>Jenkins</li>
-                            <li>Terraform</li>
-                            <li>Python</li>
-                            <li>Linux</li>
-                        </ul>
-                    </div>
-                    <div class="bento-item certs">
-                        <h3>[CERTIFICATIONS]</h3>
-                        <ul class="log-list">
-                            <li><span class="log-time">OK</span> Cisco Networking Academy: Networking Basics</li>
-                            <li><span class="log-time">OK</span> Cisco Networking Academy: Linux Unhatched</li>
-                            <li><span class="log-time">OK</span> Datacom (via Forage): Intro to Cloud Job Simulation</li>
-                        </ul>
-                    </div>
+            <a href="#" class="btn btn-outline">Resume</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge reveal">Class of '28</div>
+            <h1 class="hero-title reveal delay-1">
+                Engineering <br>
+                <span class="gradient-text">Cloud Infrastructure</span>
+            </h1>
+            <p class="hero-subtitle reveal delay-2">
+                I'm Manavendra Pratap Singh, a DevOps & Cloud Engineer building secure, scalable systems and optimized CI/CD pipelines.
+            </p>
+            <div class="hero-cta reveal delay-3">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="mailto:pratapsinghmanav2006@gmail.com" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </section>
+
+        <!-- About / Skills Section -->
+        <section id="about" class="section">
+            <div class="section-header reveal">
+                <h2>Technical Arsenal</h2>
+                <p>The tools and technologies I use to build robust architectures.</p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="glass-card skill-card reveal delay-1">
+                    <div class="card-glow"></div>
+                    <div class="skill-icon">☁️</div>
+                    <h3>Cloud & Containers</h3>
+                    <p>AWS (EC2), Docker, Docker Compose, Kubernetes.</p>
+                </div>
+                <div class="glass-card skill-card reveal delay-2">
+                    <div class="card-glow"></div>
+                    <div class="skill-icon">⚙️</div>
+                    <h3>CI/CD & Automation</h3>
+                    <p>Jenkins, GitHub Actions, GitHub Webhooks, Terraform.</p>
+                </div>
+                <div class="glass-card skill-card reveal delay-3">
+                    <div class="card-glow"></div>
+                    <div class="skill-icon">💻</div>
+                    <h3>Core Development</h3>
+                    <p>Python, JavaScript, TypeScript, Go, RESTful APIs, gRPC.</p>
                 </div>
             </div>
         </section>
 
-        <!-- The Pipeline (Experience & Projects) -->
-        <section class="projects section-card">
-            <div class="section-header">
-                <h2>> ls -la ~/the_pipeline</h2>
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-header reveal">
+                <h2>Featured Projects</h2>
+                <p>Real-world applications and infrastructure deployments.</p>
             </div>
-            
-            <div class="project-grid">
+
+            <div class="projects-grid">
                 <!-- Project 1 -->
-                <article class="project-card">
-                    <div class="project-header">
+                <article class="glass-card project-card reveal">
+                    <div class="card-glow"></div>
+                    <div class="project-content">
                         <h3>2-Tier Flask App on AWS</h3>
-                        <a href="https://github.com" target="_blank" class="repo-link">[REPO]</a>
+                        <p>Architected and deployed a web application on AWS EC2, containerized with Docker. Built an automated CI/CD pipeline with Jenkins and GitHub webhooks.</p>
+                        <div class="tech-stack">
+                            <span>Flask</span>
+                            <span>AWS EC2</span>
+                            <span>Docker</span>
+                            <span>Jenkins</span>
+                        </div>
                     </div>
-                    <p class="project-desc">Architected and deployed a 2-tier Flask/MySQL web application on AWS EC2, containerized with Docker. Built an automated CI/CD pipeline with Jenkins and GitHub webhooks for hands-off deployment.</p>
-                    <div class="tech-badges">
-                        <span class="badge">Flask</span>
-                        <span class="badge">MySQL</span>
-                        <span class="badge">AWS EC2</span>
-                        <span class="badge">Docker</span>
-                        <span class="badge">Jenkins</span>
+                    <div class="project-actions">
+                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <h3>Python Network Traffic Processor</h3>
-                        <a href="https://github.com" target="_blank" class="repo-link">[REPO]</a>
+                <article class="glass-card project-card reveal delay-1">
+                    <div class="card-glow"></div>
+                    <div class="project-content">
+                        <h3>Stateful DPI Engine</h3>
+                        <p>A Deep Packet Inspection engine in Python that parses PCAP files. Handled protocols like TCP/UDP, DNS, and TLS/HTTP with rule-based filtering.</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>PCAP</span>
+                            <span>TCP/IP</span>
+                            <span>Networking</span>
+                        </div>
                     </div>
-                    <p class="project-desc">Stateful Deep Packet Inspection (DPI) engine built from scratch to parse PCAP files. Handles protocols like TCP/UDP, DNS, and TLS/HTTP with configurable rules for filtering.</p>
-                    <div class="tech-badges">
-                        <span class="badge">Python</span>
-                        <span class="badge">PCAP</span>
-                        <span class="badge">TCP/IP</span>
-                        <span class="badge">DNS</span>
-                        <span class="badge">TLS/HTTP</span>
+                    <div class="project-actions">
+                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
                     </div>
                 </article>
 
                 <!-- Project 3 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <h3>Golden Krust (Freelance)</h3>
-                        <a href="https://github.com" target="_blank" class="repo-link">[REPO]</a>
+                <article class="glass-card project-card reveal delay-2">
+                    <div class="card-glow"></div>
+                    <div class="project-content">
+                        <h3>Golden Krust E-Commerce</h3>
+                        <p>React/Django full-stack platform. Designed a PostgreSQL schema with atomic transactions and secure multi-part file upload handling.</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>TypeScript</span>
+                        </div>
                     </div>
-                    <p class="project-desc">React/Django full-stack e-commerce build deployed with Vite. Features secure multi-part file upload handling with Pillow and a PostgreSQL schema using atomic transactions.</p>
-                    <div class="tech-badges">
-                        <span class="badge">React 19</span>
-                        <span class="badge">TypeScript</span>
-                        <span class="badge">Django REST</span>
-                        <span class="badge">PostgreSQL</span>
-                        <span class="badge">Vite</span>
+                    <div class="project-actions">
+                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
                     </div>
                 </article>
 
                 <!-- Project 4 -->
-                <article class="project-card">
-                    <div class="project-header">
+                <article class="glass-card project-card reveal delay-3">
+                    <div class="card-glow"></div>
+                    <div class="project-content">
                         <h3>SKITECH INNOTHON 3.0</h3>
-                        <a href="https://github.com" target="_blank" class="repo-link">[REPO]</a>
+                        <p>Served as Tech Lead for a national-level hackathon. Built the official event website and managed data integrity for ~500 participants.</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>Tailwind</span>
+                            <span>Leadership</span>
+                        </div>
                     </div>
-                    <p class="project-desc">Tech Lead for national-level hackathon. Built the official event website and tracked scoring data integrity across the review process for ~500 participants.</p>
-                    <div class="tech-badges">
-                        <span class="badge">React</span>
-                        <span class="badge">TypeScript</span>
-                        <span class="badge">Tailwind CSS</span>
-                        <span class="badge">Leadership</span>
+                    <div class="project-actions">
+                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- Footer / Contact -->
-        <footer class="footer section-card">
-            <div class="section-header">
-                <h2>> system_status --all</h2>
-            </div>
-            
-            <div class="footer-content">
-                <div class="contact-links">
-                    <h3>[CONNECTIONS]</h3>
-                    <a href="mailto:pratapsinghmanav2006@gmail.com" class="terminal-link">> EMAIL</a>
-                    <a href="https://linkedin.com" target="_blank" class="terminal-link">> LINKEDIN</a>
-                    <a href="https://github.com" target="_blank" class="terminal-link">> GITHUB</a>
-                    <a href="https://x.com" target="_blank" class="terminal-link">> X_TWITTER</a>
+        <!-- Certifications & Awards -->
+        <section class="section">
+            <div class="split-grid">
+                <div class="glass-card list-card reveal">
+                    <div class="card-glow"></div>
+                    <h3>Certifications</h3>
+                    <ul class="clean-list">
+                        <li>Networking Basics <span>Cisco</span></li>
+                        <li>Linux Unhatched <span>Cisco</span></li>
+                        <li>Intro to Cloud Job Simulation <span>Datacom</span></li>
+                    </ul>
                 </div>
-                
-                <div class="achievements">
-                    <h3>[SYSTEM_LOGS: ACHIEVEMENTS]</h3>
-                    <ul class="log-list">
-                        <li><span class="log-time">WIN</span> Python Programming Competition (1st Year), SKITM</li>
-                        <li><span class="log-time">WIN</span> Chatbot Development Competition (Best Presentation), SKITM</li>
+                <div class="glass-card list-card reveal delay-1">
+                    <div class="card-glow"></div>
+                    <h3>Achievements</h3>
+                    <ul class="clean-list">
+                        <li>Python Programming Competition (1st) <span>SKITM</span></li>
+                        <li>Chatbot Development (Best Presentation) <span>SKITM</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="eof">EOF</div>
-        </footer>
-
+        </section>
     </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer reveal">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Manavendra Pratap Singh</h2>
+                <p>Indore, India</p>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:pratapsinghmanav2006@gmail.com">Email</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="https://github.com" target="_blank">GitHub</a>
+                <a href="https://x.com" target="_blank">X (Twitter)</a>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
