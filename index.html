@@ -1,240 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manavendra Pratap Singh | Cloud & DevOps</title>
-    <!-- Premium Fonts: Outfit for display, Inter for body -->
+    <!-- Premium Fonts: Outfit for massive display, Inter for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- GSAP for insane animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    
+    <!-- Custom Mix-Blend-Mode Cursor -->
+    <div class="cursor"></div>
 
-    <!-- Animated background mesh -->
-    <div class="bg-mesh">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+    <!-- Fluid Background Orb -->
+    <div class="fluid-bg">
+        <div class="orb"></div>
     </div>
-
-    <!-- Interactive Particle Canvas -->
-    <canvas id="bg-canvas"></canvas>
-
-    <div class="bg-noise"></div>
+    <div class="noise-overlay"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">MPS.</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <a href="#" class="btn btn-outline">Resume</a>
+        <div class="logo magnetic" data-strength="20">MPS.</div>
+        <div class="nav-links">
+            <a href="mailto:pratapsinghmanav2006@gmail.com" class="magnetic" data-strength="40">LET'S TALK</a>
         </div>
     </nav>
 
-    <main class="container">
+    <main class="smooth-scroll-wrapper">
+        
         <!-- Hero Section -->
         <section class="hero">
-            <div class="hero-badge reveal">Class of '28</div>
-            <h1 class="hero-title reveal delay-1">
-                Engineering <br>
-                <span class="gradient-text">Cloud Infrastructure</span>
-            </h1>
-            <p class="hero-subtitle reveal delay-2">
-                I'm Manavendra Pratap Singh, a DevOps & Cloud Engineer building secure, scalable systems and optimized
-                CI/CD pipelines.
-            </p>
-            <div class="hero-cta reveal delay-3">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="mailto:pratapsinghmanav2006@gmail.com" class="btn btn-secondary">Get In Touch</a>
-            </div>
-        </section>
-
-        <!-- About / Skills Section -->
-        <section id="about" class="section">
-            <div class="section-header reveal">
-                <h2>Technical Arsenal</h2>
-                <p>The tools and technologies I use to build robust architectures.</p>
-            </div>
-
-            <div class="skills-grid">
-                <div class="glass-card skill-card reveal delay-1">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="skill-icon">☁️</div>
-                        <h3>Cloud & Containers</h3>
-                        <p>AWS (EC2), Docker, Docker Compose, Kubernetes.</p>
-                    </div>
-                </div>
-                <div class="glass-card skill-card reveal delay-2">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="skill-icon">⚙️</div>
-                        <h3>CI/CD & Automation</h3>
-                        <p>Jenkins, GitHub Actions, GitHub Webhooks, Terraform.</p>
-                    </div>
-                </div>
-                <div class="glass-card skill-card reveal delay-3">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="skill-icon">💻</div>
-                        <h3>Core Development</h3>
-                        <p>Python, JavaScript, TypeScript, Go, RESTful APIs, gRPC.</p>
+            <div class="hero-content">
+                <h1 class="huge-text hero-title">
+                    <span class="line"><span class="char-wrap">MANAVENDRA</span></span>
+                    <span class="line"><span class="char-wrap indent">PRATAP SINGH.</span></span>
+                </h1>
+                <div class="hero-bottom">
+                    <p class="hero-subtitle">
+                        I build secure infrastructure and design <br> optimized CI/CD pipelines.
+                    </p>
+                    <div class="scroll-indicator magnetic" data-strength="30">
+                        <span>↓ SCROLL</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <div class="section-header reveal">
-                <h2>Featured Projects</h2>
-                <p>Real-world applications and infrastructure deployments.</p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <article class="glass-card project-card reveal">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="project-content">
-                            <h3>2-Tier Flask App on AWS</h3>
-                            <p>Architected and deployed a web application on AWS EC2, containerized with Docker. Built
-                                an automated CI/CD pipeline with Jenkins and GitHub webhooks.</p>
-                            <div class="tech-stack">
-                                <span>Flask</span>
-                                <span>AWS EC2</span>
-                                <span>Docker</span>
-                                <span>Jenkins</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="glass-card project-card reveal delay-1">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="project-content">
-                            <h3>Stateful DPI Engine</h3>
-                            <p>A Deep Packet Inspection engine in Python that parses PCAP files. Handled protocols like
-                                TCP/UDP, DNS, and TLS/HTTP with rule-based filtering.</p>
-                            <div class="tech-stack">
-                                <span>Python</span>
-                                <span>PCAP</span>
-                                <span>TCP/IP</span>
-                                <span>Networking</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="glass-card project-card reveal delay-2">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="project-content">
-                            <h3>Golden Krust E-Commerce</h3>
-                            <p>React/Django full-stack platform. Designed a PostgreSQL schema with atomic transactions
-                                and secure multi-part file upload handling.</p>
-                            <div class="tech-stack">
-                                <span>React</span>
-                                <span>Django</span>
-                                <span>PostgreSQL</span>
-                                <span>TypeScript</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="glass-card project-card reveal delay-3">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <div class="project-content">
-                            <h3>SKITECH INNOTHON 3.0</h3>
-                            <p>Served as Tech Lead for a national-level hackathon. Built the official event website and
-                                managed data integrity for ~500 participants.</p>
-                            <div class="tech-stack">
-                                <span>React</span>
-                                <span>Tailwind</span>
-                                <span>Leadership</span>
-                            </div>
-                        </div>
-                        <div class="project-actions">
-                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Certifications & Awards -->
-        <section class="section">
-            <div class="split-grid">
-                <div class="glass-card list-card reveal">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>Certifications</h3>
-                        <ul class="clean-list">
-                            <li>Networking Basics <span>Cisco</span></li>
-                            <li>Linux Unhatched <span>Cisco</span></li>
-                            <li>Intro to Cloud Job Simulation <span>Datacom</span></li>
-                        </ul>
-                    </div>
+        <!-- Marquee Section -->
+        <section class="marquee-section">
+            <div class="marquee">
+                <div class="marquee-inner">
+                    <span>AWS &middot; DOCKER &middot; KUBERNETES &middot; TERRAFORM &middot; PYTHON &middot; JENKINS &middot; </span>
+                    <span>AWS &middot; DOCKER &middot; KUBERNETES &middot; TERRAFORM &middot; PYTHON &middot; JENKINS &middot; </span>
                 </div>
-                <div class="glass-card list-card reveal delay-1">
-                    <div class="card-glow"></div>
-                    <div class="card-content">
-                        <h3>Achievements</h3>
-                        <ul class="clean-list">
-                            <li>Python Programming Competition (1st) <span>SKITM</span></li>
-                            <li>Chatbot Development (Best Presentation) <span>SKITM</span></li>
-                        </ul>
-                    </div>
+            </div>
+            <div class="marquee marquee-reverse">
+                <div class="marquee-inner">
+                    <span>CLOUD ARCHITECTURE &middot; DEVOPS &middot; CI/CD &middot; SECURE INFRA &middot; </span>
+                    <span>CLOUD ARCHITECTURE &middot; DEVOPS &middot; CI/CD &middot; SECURE INFRA &middot; </span>
                 </div>
             </div>
         </section>
+
+        <!-- Projects - Full Width Rows -->
+        <section class="projects">
+            <h2 class="section-title">SELECTED WORK</h2>
+            
+            <div class="project-list">
+                
+                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                    <div class="project-info">
+                        <h3>2-Tier Flask App</h3>
+                        <p>AWS EC2 / Docker / Jenkins</p>
+                    </div>
+                    <div class="project-year">2026</div>
+                </a>
+
+                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                    <div class="project-info">
+                        <h3>Stateful DPI Engine</h3>
+                        <p>Python / PCAP / TCP/IP</p>
+                    </div>
+                    <div class="project-year">2025</div>
+                </a>
+
+                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                    <div class="project-info">
+                        <h3>Golden Krust</h3>
+                        <p>React / Django / PostgreSQL</p>
+                    </div>
+                    <div class="project-year">2026</div>
+                </a>
+
+                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                    <div class="project-info">
+                        <h3>InnoThon 3.0</h3>
+                        <p>Tech Lead / React / Tailwind</p>
+                    </div>
+                    <div class="project-year">2026</div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <h1 class="huge-text footer-title magnetic" data-strength="50">LET'S CONNECT.</h1>
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/manavendrapratapsingh2006/" target="_blank" class="magnetic" data-strength="20">LINKEDIN</a>
+                    <a href="https://github.com/singhmanav12" target="_blank" class="magnetic" data-strength="20">GITHUB</a>
+                    <a href="https://x.com/singhmanav12" target="_blank" class="magnetic" data-strength="20">TWITTER</a>
+                </div>
+                <div class="footer-credits">
+                    <p>CLASS OF '28 &middot; INDORE, INDIA</p>
+                </div>
+            </div>
+        </footer>
+
     </main>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer reveal">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h2>Manavendra Pratap Singh</h2>
-                <p>Indore, India</p>
-            </div>
-            <div class="footer-links">
-                <a href="mailto:pratapsinghmanav2006@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/manavendrapratapsingh2006/" target="_blank">LinkedIn</a>
-                <a href="https://github.com/singhmanav12" target="_blank">GitHub</a>
-                <a href="https://x.com/singhmanav12" target="_blank">X (Twitter)</a>
-            </div>
-        </div>
-    </footer>
 
     <script src="js/script.js"></script>
 </body>
-
 </html>
