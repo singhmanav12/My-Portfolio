@@ -162,6 +162,7 @@ a, button, .btn {
     letter-spacing: -0.05em;
     background: linear-gradient(to right, #FFF, #888);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -261,6 +262,7 @@ a, button, .btn {
 .gradient-text {
     background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #c084fc 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
