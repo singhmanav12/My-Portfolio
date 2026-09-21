@@ -11,12 +11,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <!-- Animated background mesh -->
     <div class="bg-mesh">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
         <div class="blob blob-3"></div>
     </div>
+    
+    <!-- Interactive Particle Canvas -->
+    <canvas id="bg-canvas"></canvas>
+    
     <div class="bg-noise"></div>
 
     <!-- Navigation -->
@@ -59,21 +67,27 @@
             <div class="skills-grid">
                 <div class="glass-card skill-card reveal delay-1">
                     <div class="card-glow"></div>
-                    <div class="skill-icon">☁️</div>
-                    <h3>Cloud & Containers</h3>
-                    <p>AWS (EC2), Docker, Docker Compose, Kubernetes.</p>
+                    <div class="card-content">
+                        <div class="skill-icon">☁️</div>
+                        <h3>Cloud & Containers</h3>
+                        <p>AWS (EC2), Docker, Docker Compose, Kubernetes.</p>
+                    </div>
                 </div>
                 <div class="glass-card skill-card reveal delay-2">
                     <div class="card-glow"></div>
-                    <div class="skill-icon">⚙️</div>
-                    <h3>CI/CD & Automation</h3>
-                    <p>Jenkins, GitHub Actions, GitHub Webhooks, Terraform.</p>
+                    <div class="card-content">
+                        <div class="skill-icon">⚙️</div>
+                        <h3>CI/CD & Automation</h3>
+                        <p>Jenkins, GitHub Actions, GitHub Webhooks, Terraform.</p>
+                    </div>
                 </div>
                 <div class="glass-card skill-card reveal delay-3">
                     <div class="card-glow"></div>
-                    <div class="skill-icon">💻</div>
-                    <h3>Core Development</h3>
-                    <p>Python, JavaScript, TypeScript, Go, RESTful APIs, gRPC.</p>
+                    <div class="card-content">
+                        <div class="skill-icon">💻</div>
+                        <h3>Core Development</h3>
+                        <p>Python, JavaScript, TypeScript, Go, RESTful APIs, gRPC.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,71 +103,79 @@
                 <!-- Project 1 -->
                 <article class="glass-card project-card reveal">
                     <div class="card-glow"></div>
-                    <div class="project-content">
-                        <h3>2-Tier Flask App on AWS</h3>
-                        <p>Architected and deployed a web application on AWS EC2, containerized with Docker. Built an automated CI/CD pipeline with Jenkins and GitHub webhooks.</p>
-                        <div class="tech-stack">
-                            <span>Flask</span>
-                            <span>AWS EC2</span>
-                            <span>Docker</span>
-                            <span>Jenkins</span>
+                    <div class="card-content">
+                        <div class="project-content">
+                            <h3>2-Tier Flask App on AWS</h3>
+                            <p>Architected and deployed a web application on AWS EC2, containerized with Docker. Built an automated CI/CD pipeline with Jenkins and GitHub webhooks.</p>
+                            <div class="tech-stack">
+                                <span>Flask</span>
+                                <span>AWS EC2</span>
+                                <span>Docker</span>
+                                <span>Jenkins</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        <div class="project-actions">
+                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
                 <article class="glass-card project-card reveal delay-1">
                     <div class="card-glow"></div>
-                    <div class="project-content">
-                        <h3>Stateful DPI Engine</h3>
-                        <p>A Deep Packet Inspection engine in Python that parses PCAP files. Handled protocols like TCP/UDP, DNS, and TLS/HTTP with rule-based filtering.</p>
-                        <div class="tech-stack">
-                            <span>Python</span>
-                            <span>PCAP</span>
-                            <span>TCP/IP</span>
-                            <span>Networking</span>
+                    <div class="card-content">
+                        <div class="project-content">
+                            <h3>Stateful DPI Engine</h3>
+                            <p>A Deep Packet Inspection engine in Python that parses PCAP files. Handled protocols like TCP/UDP, DNS, and TLS/HTTP with rule-based filtering.</p>
+                            <div class="tech-stack">
+                                <span>Python</span>
+                                <span>PCAP</span>
+                                <span>TCP/IP</span>
+                                <span>Networking</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        <div class="project-actions">
+                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Project 3 -->
                 <article class="glass-card project-card reveal delay-2">
                     <div class="card-glow"></div>
-                    <div class="project-content">
-                        <h3>Golden Krust E-Commerce</h3>
-                        <p>React/Django full-stack platform. Designed a PostgreSQL schema with atomic transactions and secure multi-part file upload handling.</p>
-                        <div class="tech-stack">
-                            <span>React</span>
-                            <span>Django</span>
-                            <span>PostgreSQL</span>
-                            <span>TypeScript</span>
+                    <div class="card-content">
+                        <div class="project-content">
+                            <h3>Golden Krust E-Commerce</h3>
+                            <p>React/Django full-stack platform. Designed a PostgreSQL schema with atomic transactions and secure multi-part file upload handling.</p>
+                            <div class="tech-stack">
+                                <span>React</span>
+                                <span>Django</span>
+                                <span>PostgreSQL</span>
+                                <span>TypeScript</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        <div class="project-actions">
+                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Project 4 -->
                 <article class="glass-card project-card reveal delay-3">
                     <div class="card-glow"></div>
-                    <div class="project-content">
-                        <h3>SKITECH INNOTHON 3.0</h3>
-                        <p>Served as Tech Lead for a national-level hackathon. Built the official event website and managed data integrity for ~500 participants.</p>
-                        <div class="tech-stack">
-                            <span>React</span>
-                            <span>Tailwind</span>
-                            <span>Leadership</span>
+                    <div class="card-content">
+                        <div class="project-content">
+                            <h3>SKITECH INNOTHON 3.0</h3>
+                            <p>Served as Tech Lead for a national-level hackathon. Built the official event website and managed data integrity for ~500 participants.</p>
+                            <div class="tech-stack">
+                                <span>React</span>
+                                <span>Tailwind</span>
+                                <span>Leadership</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-actions">
-                        <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        <div class="project-actions">
+                            <a href="https://github.com" target="_blank" class="project-link">View Repository ↗</a>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -164,20 +186,24 @@
             <div class="split-grid">
                 <div class="glass-card list-card reveal">
                     <div class="card-glow"></div>
-                    <h3>Certifications</h3>
-                    <ul class="clean-list">
-                        <li>Networking Basics <span>Cisco</span></li>
-                        <li>Linux Unhatched <span>Cisco</span></li>
-                        <li>Intro to Cloud Job Simulation <span>Datacom</span></li>
-                    </ul>
+                    <div class="card-content">
+                        <h3>Certifications</h3>
+                        <ul class="clean-list">
+                            <li>Networking Basics <span>Cisco</span></li>
+                            <li>Linux Unhatched <span>Cisco</span></li>
+                            <li>Intro to Cloud Job Simulation <span>Datacom</span></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="glass-card list-card reveal delay-1">
                     <div class="card-glow"></div>
-                    <h3>Achievements</h3>
-                    <ul class="clean-list">
-                        <li>Python Programming Competition (1st) <span>SKITM</span></li>
-                        <li>Chatbot Development (Best Presentation) <span>SKITM</span></li>
-                    </ul>
+                    <div class="card-content">
+                        <h3>Achievements</h3>
+                        <ul class="clean-list">
+                            <li>Python Programming Competition (1st) <span>SKITM</span></li>
+                            <li>Chatbot Development (Best Presentation) <span>SKITM</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

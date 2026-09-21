@@ -34,6 +34,35 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    cursor: none; /* Hide default cursor */
+}
+
+a, button, .btn {
+    cursor: none; /* Hide cursor on interactive elements too */
+}
+
+/* Custom Cursor */
+.cursor-dot, .cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-primary);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
 }
 
 /* Background Mesh & Noise */
@@ -44,6 +73,17 @@ body {
     opacity: 0.03;
     pointer-events: none;
     z-index: 10;
+}
+
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
 }
 
 .bg-mesh {
@@ -153,7 +193,6 @@ body {
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
-    cursor: pointer;
 }
 
 .btn-outline {
@@ -259,7 +298,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* Glass Cards */
+/* 3D Glass Cards */
 .glass-card {
     background: var(--bg-surface);
     border: 1px solid var(--border-color);
@@ -267,36 +306,40 @@ body {
     padding: 2rem;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    
+    /* 3D Properties */
+    transform-style: preserve-3d;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s; /* No all transition to allow smooth JS */
 }
 
 .glass-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure contents pop out slightly */
+.card-content {
+    transform: translateZ(20px); 
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 /* Mouse Glow Effect */
 .card-glow {
     position: absolute;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 70%);
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
     border-radius: 50%;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.3s;
     transform: translate(-50%, -50%);
     z-index: 0;
-}
-
-.glass-card:hover .card-glow {
-    opacity: 1;
-}
-
-.glass-card > * {
-    position: relative;
-    z-index: 1;
 }
 
 /* Skills */
@@ -334,13 +377,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 2rem;
-}
-
-.project-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
 }
 
 .project-content h3 {
@@ -488,4 +524,8 @@ body {
     .projects-grid { grid-template-columns: 1fr; }
     .split-grid { grid-template-columns: 1fr; }
     .footer-content { flex-direction: column; align-items: flex-start; }
+    
+    /* Disable custom cursor on mobile */
+    .cursor-dot, .cursor-outline { display: none; }
+    body, a, button, .btn { cursor: auto; }
 }
