@@ -29,7 +29,9 @@
     <nav class="navbar">
         <div class="logo magnetic" data-strength="20">MPS.</div>
         <div class="nav-links">
-            <a href="mailto:pratapsinghmanav2006@gmail.com" class="magnetic" data-strength="40">LET'S TALK</a>
+            <!-- NEW: Hiring Manager Priority -->
+            <a href="resume.pdf" target="_blank" class="magnetic btn-primary" data-strength="30">DOWNLOAD RESUME</a>
+            <a href="mailto:pratapsinghmanav2006@gmail.com" class="magnetic" data-strength="30">LET'S TALK</a>
         </div>
     </nav>
 
@@ -40,12 +42,17 @@
             <div class="hero-content">
                 <h1 class="huge-text hero-title">
                     <span class="line"><span class="char-wrap">MANAVENDRA</span></span>
-                    <span class="line"><span class="char-wrap indent">PRATAP SINGH.</span></span>
+                    <span class="line"><span class="char-wrap indent">PRATAP</span></span>
+                    <span class="line"><span class="char-wrap indent-2">SINGH.</span></span>
                 </h1>
                 <div class="hero-bottom">
-                    <p class="hero-subtitle">
-                        I build secure infrastructure and design <br> optimized CI/CD pipelines.
-                    </p>
+                    <!-- NEW: Clear Objective Statement -->
+                    <div class="objective-box">
+                        <p class="hero-subtitle">
+                            Computer Science undergrad seeking entry-level roles. <br>
+                            I build secure infrastructure and design optimized CI/CD pipelines.
+                        </p>
+                    </div>
                     <div class="scroll-indicator magnetic" data-strength="30">
                         <span>↓ SCROLL</span>
                     </div>
@@ -53,59 +60,98 @@
             </div>
         </section>
 
-        <!-- Marquee Section -->
-        <section class="marquee-section">
-            <div class="marquee">
-                <div class="marquee-inner">
-                    <span>AWS &middot; DOCKER &middot; KUBERNETES &middot; TERRAFORM &middot; PYTHON &middot; JENKINS &middot; </span>
-                    <span>AWS &middot; DOCKER &middot; KUBERNETES &middot; TERRAFORM &middot; PYTHON &middot; JENKINS &middot; </span>
+        <!-- NEW: Core Arsenal (Tech Stack Bento Box) -->
+        <section class="arsenal-section" id="skills">
+            <h2 class="section-title reveal-text">CORE ARSENAL</h2>
+            <div class="bento-grid">
+                <div class="bento-box bento-large fade-up">
+                    <h3>Cloud & CI/CD</h3>
+                    <ul class="tag-list">
+                        <li>AWS (EC2)</li>
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Jenkins</li>
+                        <li>Terraform</li>
+                        <li>GitHub Actions</li>
+                    </ul>
                 </div>
-            </div>
-            <div class="marquee marquee-reverse">
-                <div class="marquee-inner">
-                    <span>CLOUD ARCHITECTURE &middot; DEVOPS &middot; CI/CD &middot; SECURE INFRA &middot; </span>
-                    <span>CLOUD ARCHITECTURE &middot; DEVOPS &middot; CI/CD &middot; SECURE INFRA &middot; </span>
+                <div class="bento-box fade-up delay-1">
+                    <h3>Languages</h3>
+                    <ul class="tag-list">
+                        <li>Python</li>
+                        <li>Go</li>
+                        <li>TypeScript</li>
+                        <li>C/C++</li>
+                    </ul>
+                </div>
+                <div class="bento-box fade-up delay-2">
+                    <h3>Certifications</h3>
+                    <ul class="cert-list">
+                        <li><strong>Cisco:</strong> Networking Basics</li>
+                        <li><strong>Cisco:</strong> Linux Unhatched</li>
+                        <li><strong>Datacom:</strong> Cloud Job Simulation</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Projects - Full Width Rows -->
+        <!-- Projects - Expanded Details for Hiring Managers -->
         <section class="projects">
-            <h2 class="section-title">SELECTED WORK</h2>
+            <h2 class="section-title reveal-text">ENGINEERING PROJECTS</h2>
             
             <div class="project-list">
                 
-                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                <div class="project-row fade-up">
                     <div class="project-info">
-                        <h3>2-Tier Flask App</h3>
-                        <p>AWS EC2 / Docker / Jenkins</p>
+                        <h3>2-Tier Flask App on AWS</h3>
+                        <p class="project-problem"><strong>Impact:</strong> Removed manual deployment steps entirely by building an automated pipeline triggered via GitHub webhooks.</p>
+                        <div class="tech-stack-mini">
+                            <span>AWS EC2</span><span>Docker</span><span>Jenkins</span><span>Flask</span>
+                        </div>
                     </div>
-                    <div class="project-year">2026</div>
-                </a>
+                    <div class="project-links">
+                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
+                    </div>
+                </div>
 
-                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                <div class="project-row fade-up">
                     <div class="project-info">
                         <h3>Stateful DPI Engine</h3>
-                        <p>Python / PCAP / TCP/IP</p>
+                        <p class="project-problem"><strong>Impact:</strong> Built a Deep Packet Inspection engine from scratch in Python to parse PCAP files with rule-based filtering (TCP/UDP, DNS, TLS).</p>
+                        <div class="tech-stack-mini">
+                            <span>Python</span><span>PCAP</span><span>TCP/IP</span>
+                        </div>
                     </div>
-                    <div class="project-year">2025</div>
-                </a>
+                    <div class="project-links">
+                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
+                    </div>
+                </div>
 
-                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                <div class="project-row fade-up">
                     <div class="project-info">
-                        <h3>Golden Krust</h3>
-                        <p>React / Django / PostgreSQL</p>
+                        <h3>Golden Krust E-Commerce</h3>
+                        <p class="project-problem"><strong>Impact:</strong> Freelance full-stack platform. Designed a PostgreSQL schema using atomic transactions to guarantee billing data integrity.</p>
+                        <div class="tech-stack-mini">
+                            <span>React</span><span>Django</span><span>PostgreSQL</span>
+                        </div>
                     </div>
-                    <div class="project-year">2026</div>
-                </a>
+                    <div class="project-links">
+                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
+                    </div>
+                </div>
 
-                <a href="https://github.com/singhmanav12" target="_blank" class="project-row" data-cursor="VIEW">
+                <div class="project-row fade-up">
                     <div class="project-info">
-                        <h3>InnoThon 3.0</h3>
-                        <p>Tech Lead / React / Tailwind</p>
+                        <h3>InnoThon 3.0 Platform</h3>
+                        <p class="project-problem"><strong>Impact:</strong> Served as Tech Lead. Managed scoring data integrity across the review process for ~500 participants during a national hackathon.</p>
+                        <div class="tech-stack-mini">
+                            <span>React</span><span>TypeScript</span><span>Tailwind</span>
+                        </div>
                     </div>
-                    <div class="project-year">2026</div>
-                </a>
+                    <div class="project-links">
+                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
+                    </div>
+                </div>
 
             </div>
         </section>
