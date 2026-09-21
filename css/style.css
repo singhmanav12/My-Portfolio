@@ -1,0 +1,357 @@
+/* NEO-BRUTALIST TERMINAL THEME */
+:root {
+    --bg-color: #F4F4F0; /* Off-white stark background */
+    --text-color: #050505; /* Pitch black */
+    --accent-color: #CCFF00; /* Electric yellow */
+    --accent-alt: #00FF41; /* Neon terminal green */
+    
+    --border-width: 4px;
+    --shadow-offset: 6px;
+    
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-mono);
+    line-height: 1.6;
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Optional subtle CRT line overlay */
+.terminal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Common Brutalist Card Style */
+.section-card {
+    background-color: #FFF;
+    border: var(--border-width) solid var(--text-color);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--text-color);
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--accent-color);
+}
+
+.cli-prompt {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.blink {
+    animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+.hero-name {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+}
+
+.hero-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border: 2px solid var(--text-color);
+}
+
+.hero-headline {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    border-left: var(--border-width) solid var(--text-color);
+    padding-left: 1rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.brutal-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: var(--border-width) solid var(--text-color);
+    box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--text-color);
+    cursor: pointer;
+    transition: all 0.05s linear; /* mechanical feel */
+}
+
+.brutal-btn.primary {
+    background-color: #FFF;
+    color: var(--text-color);
+}
+
+.brutal-btn.secondary {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
+
+/* Button Active/Hover States */
+.brutal-btn:active, .brutal-btn.pressed {
+    transform: translate(var(--shadow-offset), var(--shadow-offset));
+    box-shadow: 0 0 0 var(--text-color);
+}
+
+.brutal-btn:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
+.brutal-btn.secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+/* Section Headers */
+.section-header {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    margin: -2rem -2rem 2rem -2rem;
+    border-bottom: var(--border-width) solid var(--text-color);
+}
+
+.section-header h2 {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+}
+
+/* About Section */
+.about-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.bento-item {
+    border: 2px dashed var(--text-color);
+    padding: 1.5rem;
+    background-color: var(--bg-color);
+}
+
+.bento-item h3 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--text-color);
+    display: inline-block;
+}
+
+.tag-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-list li {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 0.2rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.log-list {
+    list-style: none;
+}
+
+.log-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.log-time {
+    color: var(--accent-alt);
+    background-color: var(--text-color);
+    padding: 0 0.4rem;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    border: var(--border-width) solid var(--text-color);
+    padding: 1.5rem;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 0 var(--text-color);
+    transition: transform 0.1s;
+}
+
+.project-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--text-color);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--text-color);
+    padding-bottom: 0.5rem;
+}
+
+.project-header h3 {
+    font-size: 1.3rem;
+}
+
+.repo-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.repo-link:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
+
+.project-desc {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.tech-badges .badge {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+
+/* Footer Section */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.contact-links h3, .achievements h3 {
+    margin-bottom: 1rem;
+}
+
+.terminal-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.terminal-link:hover {
+    background-color: var(--text-color);
+    color: var(--accent-color);
+    padding-left: 0.5rem;
+}
+
+.achievements .log-time {
+    color: var(--accent-color);
+}
+
+.eof {
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-top: 2px dashed var(--text-color);
+    padding-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .bento-grid, .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    body {
+        padding: 1rem;
+    }
+}
