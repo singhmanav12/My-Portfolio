@@ -128,29 +128,24 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- 4. Terminal Typing Animation ---
     const terminalCode = document.getElementById('terminal-code');
     if (terminalCode) {
-        const yamlCode = `apiVersion: apps/v1
-kind: Deployment
+        const yamlCode = `apiVersion: v1
+kind: Developer
 metadata:
-  name: cloud-infrastructure
+  name: manavendra-pratap-singh
+  role: Cloud & DevOps Engineer
+  location: Indore, India
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: backend
-  template:
-    metadata:
-      labels:
-        app: backend
-    spec:
-      containers:
-      - name: devops-engine
-        image: mps/cloud-native:latest
-        ports:
-        - containerPort: 8080
-        resources:
-          limits:
-            cpu: "1"
-            memory: "1Gi"`;
+  status: seeking_entry_level
+  stack:
+    cloud: ["AWS"]
+    containers: ["Docker", "Kubernetes"]
+    iac: ["Terraform"]
+    cicd: ["Jenkins", "GitHub Actions"]
+  languages:
+    - Python
+    - Go
+    - TypeScript
+    - C/C++`;
         
         let i = 0;
         function typeTerminal() {
