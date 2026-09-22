@@ -57,11 +57,12 @@ spec:
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex gap-6 text-sm font-medium text-slate-400"
+            className="flex gap-6 text-sm font-medium text-slate-400 items-center"
           >
             <a href="#about" className="hover:text-white transition-colors">About</a>
             <a href="#projects" className="hover:text-white transition-colors">Projects</a>
             <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+            <a href="/resume.pdf" target="_blank" className="px-4 py-2 border border-sky-400/50 text-sky-400 rounded hover:bg-sky-400/10 transition-colors">Resume</a>
           </motion.div>
         </div>
       </nav>
@@ -155,7 +156,7 @@ spec:
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="section-title mb-12">Experience & Leadership</h2>
             
-            <div className="max-w-3xl relative timeline pl-6">
+            <div className="max-w-3xl relative border-l-2 border-white/10 ml-3 pl-8">
               {[
                 { year: "2026", title: "Tech Lead", company: "InnoThon 3.0 National Hackathon", desc: "Led the technical infrastructure and managed scoring data integrity across the review process for ~500 participants. Architected the official event platform utilizing React and TypeScript." },
                 { year: "2026", title: "Freelance Full-Stack Engineer", company: "Golden Krust", desc: "Designed and deployed a robust PostgreSQL schema using atomic transactions to guarantee billing data integrity for an e-commerce platform." },
@@ -167,7 +168,7 @@ spec:
                   viewport={{ once: true }}
                   className="relative mb-12 last:mb-0"
                 >
-                  <div className="timeline-marker"></div>
+                  <div className="absolute -left-[39px] top-1.5 w-3 h-3 rounded-full bg-slate-900 border-2 border-sky-400"></div>
                   <span className="text-sky-400 font-mono text-sm block mb-1">{exp.year}</span>
                   <h3 className="text-xl font-bold text-slate-50">{exp.title}</h3>
                   <h4 className="text-slate-400 font-medium mb-3">{exp.company}</h4>

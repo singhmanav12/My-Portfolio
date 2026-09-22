@@ -25,13 +25,4 @@
   .section-title.center::after {
     @apply left-1/2 -translate-x-1/2;
   }
-  
-  .timeline::before {
-    content: '';
-    @apply absolute top-0 bottom-0 left-[5px] w-0.5 bg-white/10;
-  }
-  
-  .timeline-marker {
-    @apply absolute -left-0 top-1.5 w-3 h-3 rounded-full bg-slate-900 border-2 border-sky-400;
-  }
 }
