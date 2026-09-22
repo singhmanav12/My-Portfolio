@@ -10,48 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- 0. Preloader Logic ---
     const preloader = document.querySelector('.preloader');
     const preloaderProgress = document.querySelector('.preloader-progress');
-    
-    // Split text into individual span tags for character animation
-    const charWraps = document.querySelectorAll('.char-wrap');
-    charWraps.forEach(wrap => {
-        const text = wrap.textContent;
-        wrap.innerHTML = '';
-        for (let char of text) {
-            const span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char; 
-            span.style.display = 'inline-block';
-            span.style.transform = 'translateY(110%)'; 
-            wrap.appendChild(span);
-        }
-    });
 
     // Simulate loading progress
-    gsap.to(preloaderProgress, {
-        width: "100%",
-        duration: 1.2,
-        ease: "power2.inOut",
-        onComplete: () => {
-            gsap.to(preloader, {
-                yPercent: -100,
-                duration: 1,
-                ease: "power4.inOut",
-                onComplete: () => {
-                    // Start hero text reveal AFTER preloader finishes
-                    gsap.to('.char-wrap span', {
-                        y: '0%',
-                        duration: 1.2,
-                        stagger: 0.03,
-                        ease: "power4.out"
-                    });
-                }
-            });
-        }
-    });
-
+    if (preloaderProgress && preloader) {
+        gsap.to(preloaderProgress, {
+            width: "100%",
+            duration: 1.0,
+            ease: "power2.inOut",
+            onComplete: () => {
+                gsap.to(preloader, {
+                    yPercent: -100,
+                    duration: 0.8,
+                    ease: "power4.inOut",
+                    onComplete: () => {
+                        // Start hero fade ups AFTER preloader finishes
+                        gsap.to('.hero .fade-up', {
+                            y: 0,
+                            opacity: 1,
+                            duration: 1,
+                            stagger: 0.2,
+                            ease: "power3.out"
+                        });
+                    }
+                });
+            }
+        });
+    }
 
     // --- 1. Interactive Grid Background ---
     const gridContainer = document.getElementById('interactive-grid');
-    const blockSize = 80; // 80px blocks for a slightly larger matrix feel
+    const blockSize = 80; 
     let cols = 0;
     let rows = 0;
     let blocks = [];
@@ -97,103 +85,69 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // --- 3. Magnetic Element Physics ---
-    const magneticElements = document.querySelectorAll('.magnetic');
-    
-    magneticElements.forEach(el => {
-        el.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const strength = parseFloat(this.dataset.strength) || 20; 
-            
-            const x = e.clientX - (rect.left + rect.width / 2);
-            const y = e.clientY - (rect.top + rect.height / 2);
-            
-            gsap.to(this, {
-                x: (x / rect.width) * strength,
-                y: (y / rect.height) * strength,
-                duration: 0.5,
-                ease: "power2.out"
-            });
-        });
-        
-        el.addEventListener('mouseleave', function() {
-            gsap.to(this, {
-                x: 0,
-                y: 0,
-                duration: 0.7,
-                ease: "elastic.out(1, 0.3)"
-            });
-        });
-    });
-
-    // --- 4. Typing Effect Logic ---
+    // --- 2. Typing Effect Logic ---
     const typingTextElement = document.querySelector('.typing-text');
-    const phrases = [
-        "building secure infrastructure.",
-        "optimizing CI/CD pipelines.",
-        "scaling distributed systems."
-    ];
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    if (typingTextElement) {
+        const phrases = [
+            "Building secure infrastructure.",
+            "Optimizing CI/CD pipelines.",
+            "Scaling distributed systems."
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-    function typeEffect() {
-        const currentPhrase = phrases[phraseIndex];
-        
-        if (isDeleting) {
-            typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            
+            if (isDeleting) {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typingSpeed = isDeleting ? 30 : 60;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typingSpeed = 2000; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before typing new word
+            }
+
+            setTimeout(typeEffect, typingSpeed);
         }
-
-        let typingSpeed = isDeleting ? 50 : 100;
-
-        if (!isDeleting && charIndex === currentPhrase.length) {
-            typingSpeed = 2000; // Pause at end of word
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 500; // Pause before typing new word
-        }
-
-        setTimeout(typeEffect, typingSpeed);
+        // Start typing effect slightly after preloader finishes
+        setTimeout(typeEffect, 2000);
     }
-    // Start typing effect slightly after preloader finishes
-    setTimeout(typeEffect, 2500);
 
-    // --- 5. Scroll Animations ---
+    // --- 3. Scroll Animations ---
     
-    // Parallax effect on Hero
-    gsap.to('.hero-content', {
-        y: -150,
-        opacity: 0,
-        scrollTrigger: {
-            trigger: '.hero',
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        }
-    });
-
-    // Fade Up Elements (About, Bento Boxes, Timeline, Projects)
-    const fadeUpElements = document.querySelectorAll('.fade-up');
+    // Fade Up Elements (About, Skills, Timeline, Projects)
+    // Note: Hero fade-ups are handled in the preloader onComplete
+    const fadeUpElements = document.querySelectorAll('section:not(.hero) .fade-up');
     fadeUpElements.forEach(el => {
         let delay = 0;
-        if (el.classList.contains('delay-1')) delay = 0.2;
-        if (el.classList.contains('delay-2')) delay = 0.4;
+        if (el.classList.contains('delay-1')) delay = 0.15;
+        if (el.classList.contains('delay-2')) delay = 0.3;
+        if (el.classList.contains('delay-3')) delay = 0.45;
         
+        // Initial state
+        gsap.set(el, { y: 30, opacity: 0 });
+
         gsap.to(el, {
             y: 0,
             opacity: 1,
-            duration: 1,
+            duration: 0.8,
             delay: delay,
             ease: "power3.out",
             scrollTrigger: {
                 trigger: el,
-                start: "top 85%", 
+                start: "top 90%", 
             }
         });
     });

@@ -3,194 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manavendra Pratap Singh | Cloud & DevOps</title>
-    <!-- Premium Fonts: Outfit for massive display, Inter for body -->
+    <title>Manavendra Pratap Singh | Cloud & DevOps Engineer</title>
+    <!-- Professional Fonts: Inter for clean readability -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
-    <!-- GSAP for insane animations -->
+    <!-- GSAP for subtle animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
     
-    <!-- NEW: Cinematic Preloader -->
+    <!-- Cinematic Preloader -->
     <div class="preloader">
         <div class="preloader-text">MPS<span class="blinking-cursor">_</span></div>
         <div class="preloader-progress"></div>
     </div>
 
-    <!-- NEW: Interactive Grid Background -->
+    <!-- Interactive Grid Background (Subtle Blue Matrix) -->
     <div id="interactive-grid"></div>
-    <div class="noise-overlay"></div>
-
+    
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo magnetic" data-strength="20">MPS.</div>
-        <div class="nav-links">
-            <a href="resume.pdf" target="_blank" class="magnetic btn-primary" data-strength="30">DOWNLOAD RESUME</a>
-            <!-- NEW: Schedule a call / Calendar link -->
-            <a href="mailto:pratapsinghmanav2006@gmail.com" class="magnetic btn-outline-sm" data-strength="30">SCHEDULE A CALL</a>
+        <div class="nav-container">
+            <a href="#" class="logo">Manavendra<span class="text-accent">.</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="resume.pdf" target="_blank" class="nav-btn">Resume</a>
+            </div>
         </div>
     </nav>
 
-    <main class="smooth-scroll-wrapper">
+    <main class="main-content">
         
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="huge-text hero-title">
-                    <span class="line"><span class="char-wrap">MANAVENDRA</span></span>
-                    <span class="line"><span class="char-wrap indent">PRATAP</span></span>
-                    <span class="line"><span class="char-wrap indent-2">SINGH.</span></span>
-                </h1>
-                <div class="hero-bottom">
-                    <div class="objective-box">
-                        <p class="hero-subtitle">
-                            Computer Science undergrad seeking entry-level roles. <br>
-                            <!-- NEW: Typing Effect Span -->
-                            I specialize in <span class="typing-text"></span><span class="typing-cursor">|</span>
-                        </p>
+        <section class="hero section" id="home">
+            <div class="container hero-container">
+                <div class="hero-text fade-up">
+                    <p class="hero-greeting">Hello, I am</p>
+                    <h1 class="hero-name">Manavendra Pratap Singh</h1>
+                    <h2 class="hero-roles">
+                        <span class="typing-text"></span><span class="typing-cursor">|</span>
+                    </h2>
+                    <p class="hero-desc">
+                        A dedicated Cloud Infrastructure & DevOps Engineer (Class of 2028). I specialize in architecting scalable, secure systems and automating deployment pipelines. Bridging the gap between development and operations.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="mailto:pratapsinghmanav2006@gmail.com" class="btn btn-outline">Let's Connect</a>
                     </div>
-                    <div class="scroll-indicator magnetic" data-strength="30">
-                        <span>↓ SCROLL</span>
+                </div>
+                <div class="hero-image fade-up delay-1">
+                    <!-- Placeholder for professional headshot or tech graphic -->
+                    <div class="image-placeholder">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- NEW: Deep About Me Section -->
-        <section class="about-section" id="about">
-            <div class="about-grid fade-up">
-                <h2 class="section-title">WHO AM I?</h2>
-                <div class="about-content">
-                    <p>I am a Cloud Infrastructure & DevOps Engineer (Class of 2028) based in Indore, India. My passion lies in bridging the gap between development and operations by building highly available, scalable, and secure systems.</p>
-                    <p>When I'm not configuring AWS infrastructure or writing deployment pipelines, I am leading teams at national hackathons, contributing to open-source, and exploring the bleeding edge of cloud-native security and container orchestration.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Arsenal (Tech Stack Bento Box) -->
-        <section class="arsenal-section" id="skills">
-            <h2 class="section-title reveal-text">CORE ARSENAL</h2>
-            <div class="bento-grid">
-                <div class="bento-box bento-large fade-up">
-                    <h3>Cloud & CI/CD</h3>
-                    <ul class="tag-list">
-                        <li>AWS (EC2)</li>
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Jenkins</li>
-                        <li>Terraform</li>
-                        <li>GitHub Actions</li>
-                    </ul>
-                </div>
-                <div class="bento-box fade-up delay-1">
-                    <h3>Languages</h3>
-                    <ul class="tag-list">
-                        <li>Python</li>
-                        <li>Go</li>
-                        <li>TypeScript</li>
-                        <li>C/C++</li>
-                    </ul>
-                </div>
-                <div class="bento-box fade-up delay-2">
-                    <h3>Certifications</h3>
-                    <ul class="cert-list">
-                        <li><strong>Cisco:</strong> Networking Basics</li>
-                        <li><strong>Cisco:</strong> Linux Unhatched</li>
-                        <li><strong>Datacom:</strong> Cloud Job Simulation</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- NEW: Experience & Leadership Timeline -->
-        <section class="experience-section" id="experience">
-            <h2 class="section-title">EXPERIENCE & LEADERSHIP</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item fade-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2026</span>
-                        <h3>Tech Lead</h3>
-                        <h4>InnoThon 3.0 National Hackathon</h4>
-                        <p>Led the technical infrastructure and managed scoring data integrity across the review process for ~500 participants. Architected the official event platform utilizing React and TypeScript.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2026</span>
-                        <h3>Freelance Full-Stack Engineer</h3>
-                        <h4>Golden Krust</h4>
-                        <p>Designed and deployed a robust PostgreSQL schema using atomic transactions to guarantee billing data integrity for an e-commerce platform.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item fade-up">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">2025</span>
-                        <h3>1st Place Winner</h3>
-                        <h4>Python Programming Competition (SKITM)</h4>
-                        <p>Showcased advanced Python automation and algorithmic problem-solving skills under strict time constraints.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Projects - Expanded Details for Hiring Managers -->
-        <section class="projects">
-            <h2 class="section-title reveal-text">ENGINEERING PROJECTS</h2>
             
-            <div class="project-list">
+            <a href="#about" class="scroll-down-indicator fade-up delay-2">
+                <span class="mouse-icon"></span>
+                <span>Scroll</span>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid fade-up">
+                    <div class="about-content">
+                        <p>I am a Cloud Infrastructure & DevOps Engineer based in Indore, India. Currently pursuing my Computer Science degree (Class of 2028) at Shivajirao Kadam Institute of Technology and Management.</p>
+                        <p>My technical journey revolves around a deep curiosity for how large-scale systems operate. I focus on cloud architecture, container orchestration (Docker/Kubernetes), and infrastructure as code (Terraform). When I'm not configuring AWS or writing CI/CD pipelines, I am actively participating in national hackathons and contributing to open-source communities.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>2028</h3>
+                            <p>Graduation Year</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>AWS</h3>
+                            <p>Primary Cloud</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills-section" id="skills">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 class="section-title">Core Arsenal</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card fade-up">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                        <h3>Cloud & Architecture</h3>
+                        <p>AWS (EC2, S3, RDS), System Design, Scalable Infrastructure, Load Balancing.</p>
+                    </div>
+                    <div class="skill-card fade-up delay-1">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg></div>
+                        <h3>DevOps & CI/CD</h3>
+                        <p>Docker, Kubernetes, Jenkins, Terraform, GitHub Actions, Linux Administration.</p>
+                    </div>
+                    <div class="skill-card fade-up delay-2">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div>
+                        <h3>Languages</h3>
+                        <p>Python, Go, TypeScript, C/C++, Bash Scripting.</p>
+                    </div>
+                    <div class="skill-card fade-up delay-3">
+                        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                        <h3>Certifications</h3>
+                        <ul class="clean-list">
+                            <li>Cisco Networking Basics</li>
+                            <li>Cisco Linux Unhatched</li>
+                            <li>Datacom Cloud Job Simulation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section class="section experience-section" id="experience">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 class="section-title">Experience & Leadership</h2>
+                    <div class="section-line"></div>
+                </div>
                 
-                <div class="project-row fade-up">
-                    <div class="project-info">
-                        <h3>2-Tier Flask App on AWS</h3>
-                        <p class="project-problem"><strong>Impact:</strong> Removed manual deployment steps entirely by building an automated pipeline triggered via GitHub webhooks.</p>
-                        <div class="tech-stack-mini">
-                            <span>AWS EC2</span><span>Docker</span><span>Jenkins</span><span>Flask</span>
+                <div class="timeline">
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2026</span>
+                            <h3 class="timeline-title">Tech Lead</h3>
+                            <h4 class="timeline-company">InnoThon 3.0 National Hackathon</h4>
+                            <p>Led the technical infrastructure and managed scoring data integrity across the review process for ~500 participants. Architected the official event platform utilizing React and TypeScript.</p>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
-                    </div>
-                </div>
 
-                <div class="project-row fade-up">
-                    <div class="project-info">
-                        <h3>Stateful DPI Engine</h3>
-                        <p class="project-problem"><strong>Impact:</strong> Built a Deep Packet Inspection engine from scratch in Python to parse PCAP files with rule-based filtering (TCP/UDP, DNS, TLS).</p>
-                        <div class="tech-stack-mini">
-                            <span>Python</span><span>PCAP</span><span>TCP/IP</span>
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2026</span>
+                            <h3 class="timeline-title">Freelance Full-Stack Engineer</h3>
+                            <h4 class="timeline-company">Golden Krust</h4>
+                            <p>Designed and deployed a robust PostgreSQL schema using atomic transactions to guarantee billing data integrity for an e-commerce platform.</p>
                         </div>
                     </div>
-                    <div class="project-links">
-                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
+
+                    <div class="timeline-item fade-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">2025</span>
+                            <h3 class="timeline-title">1st Place Winner</h3>
+                            <h4 class="timeline-company">Python Programming Competition (SKITM)</h4>
+                            <p>Showcased advanced Python automation and algorithmic problem-solving skills under strict time constraints.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- Projects Section -->
+        <section class="section projects-section" id="projects">
+            <div class="container">
+                <div class="section-header fade-up">
+                    <h2 class="section-title">Engineering Projects</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projects-grid">
+                    
+                    <div class="project-card fade-up">
+                        <div class="project-content">
+                            <div class="project-header">
+                                <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                                <a href="https://github.com/singhmanav12" target="_blank" class="github-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            </div>
+                            <h3 class="project-title">2-Tier Flask App on AWS</h3>
+                            <p class="project-desc">Built an automated CI/CD pipeline triggered via GitHub webhooks, completely removing manual deployment steps for a robust 2-tier application architecture.</p>
+                            <div class="project-tech">
+                                <span>AWS EC2</span><span>Docker</span><span>Jenkins</span><span>Flask</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card fade-up delay-1">
+                        <div class="project-content">
+                            <div class="project-header">
+                                <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                                <a href="https://github.com/singhmanav12" target="_blank" class="github-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            </div>
+                            <h3 class="project-title">Stateful DPI Engine</h3>
+                            <p class="project-desc">Engineered a Deep Packet Inspection engine from scratch in Python to parse PCAP files with complex rule-based filtering across TCP/UDP, DNS, and TLS protocols.</p>
+                            <div class="project-tech">
+                                <span>Python</span><span>PCAP</span><span>TCP/IP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer class="footer">
-            <h1 class="huge-text footer-title magnetic" data-strength="50">LET'S CONNECT.</h1>
-            <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/manavendrapratapsingh2006/" target="_blank" class="magnetic" data-strength="20">LINKEDIN</a>
-                    <a href="https://github.com/singhmanav12" target="_blank" class="magnetic" data-strength="20">GITHUB</a>
-                    <a href="https://x.com/singhmanav12" target="_blank" class="magnetic" data-strength="20">TWITTER</a>
+            <div class="container footer-container">
+                <div class="footer-left">
+                    <h2>Manavendra Pratap Singh</h2>
+                    <p>Cloud Infrastructure & DevOps Engineer</p>
                 </div>
-                <div class="footer-credits">
-                    <p>CLASS OF '28 &middot; INDORE, INDIA</p>
+                <div class="footer-right">
+                    <div class="social-links">
+                        <a href="https://github.com/singhmanav12" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/manavendrapratapsingh2006/" target="_blank">LinkedIn</a>
+                        <a href="https://x.com/singhmanav12" target="_blank">Twitter</a>
+                    </div>
+                    <p class="copyright">&copy; 2026 Manavendra Pratap Singh. All rights reserved.</p>
                 </div>
             </div>
         </footer>
