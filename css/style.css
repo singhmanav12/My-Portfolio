@@ -13,7 +13,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    cursor: none; /* Hide default cursor everywhere */
 }
 
 html, body {
@@ -78,55 +77,24 @@ a {
     animation: blink 1s step-end infinite;
 }
 
-/* Mix-Blend-Mode Custom Cursor */
-.cursor {
+/* Interactive Grid Background */
+#interactive-grid {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #FFF;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0px; /* Hidden initially */
-    color: #000;
-}
-
-.cursor.active {
-    width: 100px;
-    height: 100px;
-    font-size: 1.2rem;
-}
-
-/* Fluid Orb Background */
-.fluid-bg {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
+    top: 0; left: 0; right: 0; bottom: 0;
     z-index: -2;
-    overflow: hidden;
+    display: grid;
     pointer-events: none;
 }
 
-.orb {
-    position: absolute;
-    top: 0; left: 0; /* JS will animate x/y */
-    width: 60vw; height: 60vw;
-    background: radial-gradient(circle, var(--accent) 0%, rgba(204, 255, 0, 0) 60%);
-    transform: translate(-50%, -50%); /* Centers the orb on x,y coordinates */
-    border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.15;
-    pointer-events: none;
-    will-change: transform;
+.grid-block {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    transition: background-color 0.8s ease;
+}
+
+.grid-block.active {
+    background-color: rgba(204, 255, 0, 0.15); /* Accent color glow */
+    transition: background-color 0s;
 }
 
 .noise-overlay {

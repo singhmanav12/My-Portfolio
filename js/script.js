@@ -49,37 +49,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // --- 1. Custom Mix-Blend-Mode Cursor ---
-    const cursor = document.querySelector('.cursor');
-    
-    const cursorX = gsap.quickTo(cursor, "left", {duration: 0.4, ease: "power3"});
-    const cursorY = gsap.quickTo(cursor, "top", {duration: 0.4, ease: "power3"});
+    // --- 1. Interactive Grid Background ---
+    const gridContainer = document.getElementById('interactive-grid');
+    const blockSize = 80; // 80px blocks for a slightly larger matrix feel
+    let cols = 0;
+    let rows = 0;
+    let blocks = [];
 
-    window.addEventListener('mousemove', (e) => {
-        cursorX(e.clientX);
-        cursorY(e.clientY);
-    });
-
-    document.querySelectorAll('a, .btn-primary, .btn-outline, .btn-outline-sm').forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-        });
-        item.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-        });
-    });
-
-    // --- 2. Fluid Orb Follower ---
-    const orb = document.querySelector('.orb');
-    if (orb) {
-        const orbX = gsap.quickTo(orb, "x", {duration: 1.5, ease: "power2.out"});
-        const orbY = gsap.quickTo(orb, "y", {duration: 1.5, ease: "power2.out"});
+    function createGrid() {
+        if (!gridContainer) return;
+        gridContainer.innerHTML = '';
+        cols = Math.floor(window.innerWidth / blockSize) + 1;
+        rows = Math.floor(window.innerHeight / blockSize) + 1;
         
-        window.addEventListener('mousemove', (e) => {
-            orbX(e.clientX);
-            orbY(e.clientY);
-        });
+        gridContainer.style.gridTemplateColumns = `repeat(${cols}, ${blockSize}px)`;
+        gridContainer.style.gridTemplateRows = `repeat(${rows}, ${blockSize}px)`;
+        
+        const totalBlocks = cols * rows;
+        blocks = [];
+        
+        for (let i = 0; i < totalBlocks; i++) {
+            const block = document.createElement('div');
+            block.classList.add('grid-block');
+            gridContainer.appendChild(block);
+            blocks.push(block);
+        }
     }
+
+    createGrid();
+    window.addEventListener('resize', createGrid);
+
+    // Track mouse and light up block
+    window.addEventListener('mousemove', (e) => {
+        if (!blocks.length) return;
+        const col = Math.floor(e.clientX / blockSize);
+        const row = Math.floor(e.clientY / blockSize);
+        const index = row * cols + col;
+        
+        if (index >= 0 && index < blocks.length) {
+            const block = blocks[index];
+            block.classList.add('active');
+            
+            // Remove active class after a tiny delay so it fades out slowly
+            setTimeout(() => {
+                block.classList.remove('active');
+            }, 100);
+        }
+    });
 
     // --- 3. Magnetic Element Physics ---
     const magneticElements = document.querySelectorAll('.magnetic');
