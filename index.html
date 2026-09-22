@@ -16,6 +16,12 @@
 </head>
 <body>
     
+    <!-- NEW: Cinematic Preloader -->
+    <div class="preloader">
+        <div class="preloader-text">MPS<span class="blinking-cursor">_</span></div>
+        <div class="preloader-progress"></div>
+    </div>
+
     <!-- Custom Mix-Blend-Mode Cursor -->
     <div class="cursor"></div>
 
@@ -29,9 +35,9 @@
     <nav class="navbar">
         <div class="logo magnetic" data-strength="20">MPS.</div>
         <div class="nav-links">
-            <!-- NEW: Hiring Manager Priority -->
             <a href="resume.pdf" target="_blank" class="magnetic btn-primary" data-strength="30">DOWNLOAD RESUME</a>
-            <a href="mailto:pratapsinghmanav2006@gmail.com" class="magnetic" data-strength="30">LET'S TALK</a>
+            <!-- NEW: Schedule a call / Calendar link -->
+            <a href="mailto:pratapsinghmanav2006@gmail.com" class="magnetic btn-outline-sm" data-strength="30">SCHEDULE A CALL</a>
         </div>
     </nav>
 
@@ -46,11 +52,11 @@
                     <span class="line"><span class="char-wrap indent-2">SINGH.</span></span>
                 </h1>
                 <div class="hero-bottom">
-                    <!-- NEW: Clear Objective Statement -->
                     <div class="objective-box">
                         <p class="hero-subtitle">
                             Computer Science undergrad seeking entry-level roles. <br>
-                            I build secure infrastructure and design optimized CI/CD pipelines.
+                            <!-- NEW: Typing Effect Span -->
+                            I specialize in <span class="typing-text"></span><span class="typing-cursor">|</span>
                         </p>
                     </div>
                     <div class="scroll-indicator magnetic" data-strength="30">
@@ -60,7 +66,18 @@
             </div>
         </section>
 
-        <!-- NEW: Core Arsenal (Tech Stack Bento Box) -->
+        <!-- NEW: Deep About Me Section -->
+        <section class="about-section" id="about">
+            <div class="about-grid fade-up">
+                <h2 class="section-title">WHO AM I?</h2>
+                <div class="about-content">
+                    <p>I am a Cloud Infrastructure & DevOps Engineer (Class of 2028) based in Indore, India. My passion lies in bridging the gap between development and operations by building highly available, scalable, and secure systems.</p>
+                    <p>When I'm not configuring AWS infrastructure or writing deployment pipelines, I am leading teams at national hackathons, contributing to open-source, and exploring the bleeding edge of cloud-native security and container orchestration.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Arsenal (Tech Stack Bento Box) -->
         <section class="arsenal-section" id="skills">
             <h2 class="section-title reveal-text">CORE ARSENAL</h2>
             <div class="bento-grid">
@@ -95,6 +112,44 @@
             </div>
         </section>
 
+        <!-- NEW: Experience & Leadership Timeline -->
+        <section class="experience-section" id="experience">
+            <h2 class="section-title">EXPERIENCE & LEADERSHIP</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2026</span>
+                        <h3>Tech Lead</h3>
+                        <h4>InnoThon 3.0 National Hackathon</h4>
+                        <p>Led the technical infrastructure and managed scoring data integrity across the review process for ~500 participants. Architected the official event platform utilizing React and TypeScript.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2026</span>
+                        <h3>Freelance Full-Stack Engineer</h3>
+                        <h4>Golden Krust</h4>
+                        <p>Designed and deployed a robust PostgreSQL schema using atomic transactions to guarantee billing data integrity for an e-commerce platform.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2025</span>
+                        <h3>1st Place Winner</h3>
+                        <h4>Python Programming Competition (SKITM)</h4>
+                        <p>Showcased advanced Python automation and algorithmic problem-solving skills under strict time constraints.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- Projects - Expanded Details for Hiring Managers -->
         <section class="projects">
             <h2 class="section-title reveal-text">ENGINEERING PROJECTS</h2>
@@ -120,32 +175,6 @@
                         <p class="project-problem"><strong>Impact:</strong> Built a Deep Packet Inspection engine from scratch in Python to parse PCAP files with rule-based filtering (TCP/UDP, DNS, TLS).</p>
                         <div class="tech-stack-mini">
                             <span>Python</span><span>PCAP</span><span>TCP/IP</span>
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
-                    </div>
-                </div>
-
-                <div class="project-row fade-up">
-                    <div class="project-info">
-                        <h3>Golden Krust E-Commerce</h3>
-                        <p class="project-problem"><strong>Impact:</strong> Freelance full-stack platform. Designed a PostgreSQL schema using atomic transactions to guarantee billing data integrity.</p>
-                        <div class="tech-stack-mini">
-                            <span>React</span><span>Django</span><span>PostgreSQL</span>
-                        </div>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/singhmanav12" target="_blank" class="magnetic btn-outline" data-strength="15">VIEW CODE</a>
-                    </div>
-                </div>
-
-                <div class="project-row fade-up">
-                    <div class="project-info">
-                        <h3>InnoThon 3.0 Platform</h3>
-                        <p class="project-problem"><strong>Impact:</strong> Served as Tech Lead. Managed scoring data integrity across the review process for ~500 participants during a national hackathon.</p>
-                        <div class="tech-stack-mini">
-                            <span>React</span><span>TypeScript</span><span>Tailwind</span>
                         </div>
                     </div>
                     <div class="project-links">

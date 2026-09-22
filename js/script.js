@@ -7,6 +7,48 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("GSAP or ScrollTrigger not loaded!");
     }
 
+    // --- 0. Preloader Logic ---
+    const preloader = document.querySelector('.preloader');
+    const preloaderProgress = document.querySelector('.preloader-progress');
+    
+    // Split text into individual span tags for character animation
+    const charWraps = document.querySelectorAll('.char-wrap');
+    charWraps.forEach(wrap => {
+        const text = wrap.textContent;
+        wrap.innerHTML = '';
+        for (let char of text) {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char; 
+            span.style.display = 'inline-block';
+            span.style.transform = 'translateY(110%)'; 
+            wrap.appendChild(span);
+        }
+    });
+
+    // Simulate loading progress
+    gsap.to(preloaderProgress, {
+        width: "100%",
+        duration: 1.2,
+        ease: "power2.inOut",
+        onComplete: () => {
+            gsap.to(preloader, {
+                yPercent: -100,
+                duration: 1,
+                ease: "power4.inOut",
+                onComplete: () => {
+                    // Start hero text reveal AFTER preloader finishes
+                    gsap.to('.char-wrap span', {
+                        y: '0%',
+                        duration: 1.2,
+                        stagger: 0.03,
+                        ease: "power4.out"
+                    });
+                }
+            });
+        }
+    });
+
+
     // --- 1. Custom Mix-Blend-Mode Cursor ---
     const cursor = document.querySelector('.cursor');
     
@@ -18,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cursorY(e.clientY);
     });
 
-    document.querySelectorAll('a, .btn-primary, .btn-outline').forEach(item => {
+    document.querySelectorAll('a, .btn-primary, .btn-outline, .btn-outline-sm').forEach(item => {
         item.addEventListener('mouseenter', () => {
             cursor.classList.add('active');
         });
@@ -68,27 +110,43 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // --- 4. Hero Text Reveal Animation ---
-    const charWraps = document.querySelectorAll('.char-wrap');
-    charWraps.forEach(wrap => {
-        const text = wrap.textContent;
-        wrap.innerHTML = '';
-        for (let char of text) {
-            const span = document.createElement('span');
-            span.textContent = char === ' ' ? '\u00A0' : char; 
-            span.style.display = 'inline-block';
-            span.style.transform = 'translateY(110%)'; 
-            wrap.appendChild(span);
-        }
-    });
+    // --- 4. Typing Effect Logic ---
+    const typingTextElement = document.querySelector('.typing-text');
+    const phrases = [
+        "building secure infrastructure.",
+        "optimizing CI/CD pipelines.",
+        "scaling distributed systems."
+    ];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-    gsap.to('.char-wrap span', {
-        y: '0%',
-        duration: 1.2,
-        stagger: 0.03,
-        ease: "power4.out",
-        delay: 0.2
-    });
+    function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+        
+        if (isDeleting) {
+            typingTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typingSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            typingSpeed = 2000; // Pause at end of word
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 500; // Pause before typing new word
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+    }
+    // Start typing effect slightly after preloader finishes
+    setTimeout(typeEffect, 2500);
 
     // --- 5. Scroll Animations ---
     
@@ -104,10 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Fade Up Elements (Bento Boxes, Projects)
+    // Fade Up Elements (About, Bento Boxes, Timeline, Projects)
     const fadeUpElements = document.querySelectorAll('.fade-up');
     fadeUpElements.forEach(el => {
-        // Handle custom delay classes
         let delay = 0;
         if (el.classList.contains('delay-1')) delay = 0.2;
         if (el.classList.contains('delay-2')) delay = 0.4;
