@@ -125,6 +125,46 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(typeEffect, 2000);
     }
 
+    // --- 4. Terminal Typing Animation ---
+    const terminalCode = document.getElementById('terminal-code');
+    if (terminalCode) {
+        const yamlCode = `apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-infrastructure
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: devops-engine
+        image: mps/cloud-native:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"`;
+        
+        let i = 0;
+        function typeTerminal() {
+            if (i < yamlCode.length) {
+                terminalCode.textContent += yamlCode.charAt(i);
+                i++;
+                setTimeout(typeTerminal, 10 + Math.random() * 20);
+            }
+        }
+        
+        // Start typing a bit after load
+        setTimeout(typeTerminal, 2500);
+    }
+
     // --- 3. Scroll Animations ---
     
     // Fade Up Elements (About, Skills, Timeline, Projects)
