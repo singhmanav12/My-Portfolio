@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Mail, ExternalLink, Code2, Cloud, Box, Server, GitBranch, Sparkles } from 'lucide-react';
 import { portfolioData } from './data';
+import { InteractiveGrid } from './InteractiveGrid';
 
 // Helper to get an icon based on name
 const getTechIcon = (name: string) => {
@@ -28,11 +29,8 @@ const App = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-50 font-sans selection:bg-[#caff00]/30 overflow-x-hidden">
       
-      {/* Decorative Background Elements */}
-      <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] brush-blue blur-[100px] opacity-40 rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] brush-lime blur-[100px] opacity-20 rounded-full"></div>
-      </div>
+      {/* Interactive Background Grid */}
+      <InteractiveGrid />
 
       {/* Navigation */}
       <nav className="relative z-50 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
