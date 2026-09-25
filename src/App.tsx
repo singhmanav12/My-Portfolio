@@ -1,26 +1,25 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, ExternalLink, Code2, Cloud, Box, Server, GitBranch, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Mail, ExternalLink, Code2, Server } from 'lucide-react';
+import { FaAws, FaJava } from 'react-icons/fa';
+import { SiPython, SiDocker, SiKubernetes, SiReact, SiGit, SiJavascript, SiLinux, SiTerraform, SiHtml5, SiCss, SiGithub } from 'react-icons/si';
 import { portfolioData } from './data';
 import { InteractiveGrid } from './InteractiveGrid';
 
-// Helper to get an icon based on name
 const getTechIcon = (name: string) => {
   switch (name.toLowerCase()) {
-    case 'python': return <Code2 size={16} className="text-yellow-400" />;
-    case 'aws': return <Cloud size={16} className="text-orange-400" />;
-    case 'docker': return <Box size={16} className="text-blue-400" />;
-    case 'kubernetes': return <Server size={16} className="text-blue-500" />;
-    case 'react': return <Code2 size={16} className="text-cyan-400" />;
-    case 'git': return <GitBranch size={16} className="text-red-400" />;
-    case 'java': return <Code2 size={16} className="text-red-500" />;
-    case 'javascript': return <Code2 size={16} className="text-yellow-300" />;
-    case 'linux': return <Server size={16} className="text-slate-300" />;
-    case 'terraform': return <Cloud size={16} className="text-purple-400" />;
-    case 'html': return <Code2 size={16} className="text-orange-500" />;
-    case 'css': return <Code2 size={16} className="text-blue-500" />;
-    case 'rest apis': return <Server size={16} className="text-green-400" />;
-    case 'github': return <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>;
+    case 'python': return <SiPython size={16} className="text-[#3776AB]" />;
+    case 'aws': return <FaAws size={16} className="text-[#FF9900]" />;
+    case 'docker': return <SiDocker size={16} className="text-[#2496ED]" />;
+    case 'kubernetes': return <SiKubernetes size={16} className="text-[#326CE5]" />;
+    case 'react': return <SiReact size={16} className="text-[#61DAFB]" />;
+    case 'git': return <SiGit size={16} className="text-[#F05032]" />;
+    case 'java': return <FaJava size={16} className="text-[#007396]" />;
+    case 'javascript': return <SiJavascript size={16} className="text-[#F7DF1E]" />;
+    case 'linux': return <SiLinux size={16} className="text-white" />;
+    case 'terraform': return <SiTerraform size={16} className="text-[#844FBA]" />;
+    case 'html': return <SiHtml5 size={16} className="text-[#E34F26]" />;
+    case 'css': return <SiCss size={16} className="text-[#1572B6]" />;
+    case 'rest apis': return <Server size={16} className="text-slate-400" />;
+    case 'github': return <SiGithub size={16} className="text-white" />;
     default: return <Code2 size={16} className="text-slate-400" />;
   }
 };
@@ -28,7 +27,7 @@ const getTechIcon = (name: string) => {
 const App = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-50 font-sans selection:bg-[#caff00]/30 overflow-x-hidden">
-      
+
       {/* Interactive Background Grid */}
       <InteractiveGrid />
 
@@ -49,30 +48,30 @@ const App = () => {
       </nav>
 
       <main className="relative z-10">
-        
+
         {/* HERO SECTION */}
         <section className="relative pt-12 pb-32 overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[14vw] font-black text-outline-heavy uppercase leading-none opacity-20 select-none z-0 tracking-tighter pointer-events-none transform -rotate-12 w-[120%] text-center">
             {portfolioData.hero.backgroundText}
           </div>
-          
+
           <div className="max-w-7xl mx-auto px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1 space-y-6">
               <p className="text-slate-300 uppercase tracking-[0.2em] text-xs font-semibold">Hello, I'm</p>
-              
+
               <h1 className="text-6xl md:text-[5.5rem] font-black uppercase tracking-tighter leading-[0.9] text-white">
                 <span className="block">MANAVENDRA</span>
                 <span className="block text-outline">PRATAP SINGH</span>
               </h1>
-              
+
               <p className="text-xs md:text-sm font-mono text-slate-400 uppercase tracking-[0.2em] pt-2">
                 {portfolioData.hero.role}
               </p>
-              
+
               <p className="text-lg text-slate-300 max-w-md leading-relaxed font-serif pt-4">
                 {portfolioData.hero.description}
               </p>
-              
+
               <div className="flex flex-wrap items-center gap-4 pt-6">
                 <a href={portfolioData.hero.buttons.primary.link} className="btn-primary">
                   {portfolioData.hero.buttons.primary.text} <ArrowRight size={18} />
@@ -81,7 +80,7 @@ const App = () => {
                   {portfolioData.hero.buttons.secondary.text} <Download size={18} />
                 </a>
               </div>
-              
+
               <div className="flex flex-wrap gap-3 pt-8">
                 {portfolioData.hero.techChips.map((chip, idx) => (
                   <div key={idx} className="chip">
@@ -90,7 +89,7 @@ const App = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="flex-1 w-full flex justify-center lg:justify-end relative">
               <div className="relative w-full max-w-[22rem] aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-slate-900 flex items-center justify-center group z-10">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#0ea5e9]/20 to-transparent z-10"></div>
@@ -107,15 +106,15 @@ const App = () => {
               </div>
 
               <div className="absolute top-1/3 -left-16 text-slate-300 font-[Caveat] text-3xl transform -rotate-6 z-20 leading-tight">
-                Ideas<br/>Build<br/>Code<br/>Deploy<br/>Repeat.
+                Ideas<br />Build<br />Code<br />Deploy<br />Repeat.
               </div>
 
-              <div className="absolute bottom-12 -right-8 bg-[#caff00] text-black w-40 h-40 rounded-full flex flex-col items-center justify-center font-bold text-center text-[10px] leading-tight p-4 shadow-2xl z-30 animate-[spin_10s_linear_infinite] hover:animate-none transition-transform hover:scale-110 cursor-pointer">
-                AVAILABLE FOR<br/>INTERNSHIPS &<br/>FULL-TIME ROLES<br/><br/>OPEN TO<br/>COLLABORATION<br/><ArrowRight size={14} className="mx-auto mt-1" />
+              <div className="absolute bottom-12 -right-8 bg-[#caff00] text-black w-40 h-40 rounded-full flex flex-col items-center justify-center font-bold text-center text-[10px] p-4 shadow-2xl z-30 animate-[spin_10s_linear_infinite] hover:animate-none transition-transform hover:scale-110 cursor-pointer">
+                AVAILABLE FOR<br />INTERNSHIPS &amp;<br />FULL-TIME ROLES<br /><br />OPEN TO<br />COLLABORATION<br /><ArrowRight size={14} className="mx-auto mt-1" />
               </div>
 
               <div className="absolute -bottom-16 right-32 text-slate-300 font-[Caveat] text-2xl transform rotate-12 z-20">
-                Currently<br/>Learning<br/>Kubernetes...
+                Currently<br />Learning<br />Kubernetes...
                 <svg className="absolute -bottom-6 -left-6" width="40" height="40" viewBox="0 0 50 50" fill="none" stroke="#caff00" strokeWidth="3" strokeLinecap="round">
                   <path d="M40 10 Q 20 20 10 40 M10 40 L20 35 M10 40 L15 30" />
                 </svg>
@@ -130,7 +129,7 @@ const App = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
                 <h2 className="text-white text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4">
-                  SELECTED<br/><span className="text-[#caff00]">PROJECTS</span>
+                  SELECTED<br /><span className="text-[#caff00]">PROJECTS</span>
                 </h2>
                 <p className="text-slate-400 max-w-sm">A selection of things I've built, experimented with and shipped.</p>
               </div>
@@ -185,18 +184,18 @@ const App = () => {
                 <span className="text-outline block">ME</span>
               </h2>
               <div className="absolute top-32 left-10 text-slate-400 font-[Caveat] text-3xl transform -rotate-6">
-                Same Person<br/>Different Ideas
+                Same Person<br />Different Ideas
                 <svg className="absolute top-8 -right-8 transform rotate-90" width="40" height="40" viewBox="0 0 50 50" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
                   <path d="M10 25 Q 25 10 40 25 M40 25 L35 15 M40 25 L30 30" />
                 </svg>
               </div>
             </div>
-            
+
             <div className="w-full lg:w-2/3 space-y-12">
               <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-sans">
                 {portfolioData.about.text}
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-y border-white/10">
                 {portfolioData.about.stats.map((stat, idx) => (
                   <div key={idx} className="flex flex-col border-l border-white/10 pl-6 first:border-0 first:pl-0">
@@ -259,17 +258,17 @@ const App = () => {
             </h2>
             <p className="text-slate-400">Key events, roles and achievements.</p>
           </div>
-          
+
           <div className="relative pt-10">
             {/* Horizontal Timeline Line */}
             <div className="absolute top-12 left-0 w-full h-px bg-white/10 hidden md:block"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {portfolioData.experience.map((exp, idx) => (
                 <div key={idx} className="relative group">
                   {/* Timeline Dot */}
                   <div className="hidden md:flex absolute -top-[1.2rem] left-0 w-4 h-4 rounded-full bg-slate-950 border-2 border-slate-700 group-hover:border-[#caff00] z-10 transition-colors"></div>
-                  
+
                   <div className="md:pt-8">
                     <span className="text-xs font-mono text-slate-500 mb-3 block">{exp.year}</span>
                     <h3 className="font-bold text-xl text-white mb-1 group-hover:text-[#caff00] transition-colors">{exp.title}</h3>
@@ -282,7 +281,7 @@ const App = () => {
 
             {/* Doodle over timeline */}
             <div className="hidden md:block absolute -top-8 right-12 text-[#caff00] font-[Caveat] text-3xl transform rotate-6">
-              Build<br/>Learn<br/>Share<br/>Grow
+              Build<br />Learn<br />Share<br />Grow
               <svg className="absolute -bottom-6 right-10 transform -rotate-45" width="30" height="30" viewBox="0 0 50 50" fill="none" stroke="#caff00" strokeWidth="2" strokeLinecap="round">
                 <path d="M10 10 L40 40 M40 40 L20 40 M40 40 L40 20" />
               </svg>
@@ -293,11 +292,11 @@ const App = () => {
         {/* BOTTOM LEARNING & CONTACT ROW */}
         <section className="py-24 max-w-7xl mx-auto px-8 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
+
             {/* Currently Learning */}
             <div>
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-8">
-                CURRENTLY<br/><span className="text-[#0ea5e9]">LEARNING</span>
+                CURRENTLY<br /><span className="text-[#0ea5e9]">LEARNING</span>
               </h2>
               <ul className="space-y-4">
                 {portfolioData.learning.map((item, idx) => (
@@ -311,23 +310,23 @@ const App = () => {
             {/* Let's Build Something Useful */}
             <div id="contact" className="relative group">
               <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-6">
-                LET'S BUILD<br/><span className="text-[#caff00]">SOMETHING USEFUL.</span>
+                LET'S BUILD<br /><span className="text-[#caff00]">SOMETHING USEFUL.</span>
               </h2>
               <p className="text-slate-400 mb-10 max-w-sm">
                 {portfolioData.contact.subheading}
               </p>
-              
+
               <div className="flex flex-wrap items-center gap-6 relative z-10">
                 <a href="#" className="btn-primary">Let's Talk <ArrowRight size={18} /></a>
                 <div className="flex gap-4">
                   <a href={portfolioData.contact.github} className="text-slate-400 hover:text-white transition-colors">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" /></svg>
                   </a>
                   <a href={portfolioData.contact.linkedin} className="text-slate-400 hover:text-[#0ea5e9] transition-colors">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
                   </a>
                   <a href={portfolioData.contact.x} className="text-slate-400 hover:text-white transition-colors">
-                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
                   </a>
                   <a href={`mailto:${portfolioData.contact.email}`} className="text-slate-400 hover:text-[#caff00] transition-colors">
                     <Mail size={24} />
@@ -342,7 +341,7 @@ const App = () => {
                 </svg>
               </div>
             </div>
-            
+
           </div>
         </section>
 
