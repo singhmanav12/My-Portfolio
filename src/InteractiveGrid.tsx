@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
-const COLORS = ['#0ea5e9', '#22c55e', '#eab308', '#ef4444', '#8b5cf6', '#ec4899'];
+// Using the portfolio's specific brand colors for a cohesive, professional look
+const COLORS = ['#caff00', '#0ea5e9']; // Neon Lime, Sky Blue
 
 export const InteractiveGrid = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -49,15 +50,30 @@ export const InteractiveGrid = () => {
       const sx = (c - r) * (TILE_W / 2) + baseOffsetX;
       const sy = (c + r) * (TILE_H / 2) + currentOffsetY;
 
-      ctx.globalAlpha = alpha;
-      ctx.fillStyle = fillStyle;
       ctx.beginPath();
       ctx.moveTo(sx, sy - TILE_H / 2); // Top
       ctx.lineTo(sx + TILE_W / 2, sy); // Right
       ctx.lineTo(sx, sy + TILE_H / 2); // Bottom
       ctx.lineTo(sx - TILE_W / 2, sy); // Left
       ctx.closePath();
+
+      // Professional glassmorphic effect: highly transparent fill with a crisp glowing border
+      ctx.globalAlpha = alpha * 0.15; // Subtle fill
+      ctx.fillStyle = fillStyle;
       ctx.fill();
+
+      ctx.globalAlpha = alpha * 0.8; // Crisp border
+      ctx.strokeStyle = fillStyle;
+      ctx.lineWidth = 1;
+      
+      // Optional subtle neon glow
+      ctx.shadowColor = fillStyle;
+      ctx.shadowBlur = 10;
+      
+      ctx.stroke();
+      
+      // Reset shadow for performance on other drawings
+      ctx.shadowBlur = 0;
     };
 
     const activateCell = (sx: number, sy: number, currentOffsetY: number) => {
@@ -76,7 +92,7 @@ export const InteractiveGrid = () => {
         lastHoveredKey = key;
         activeCells.set(key, {
           color: COLORS[Math.floor(Math.random() * COLORS.length)],
-          alpha: 0.8,
+          alpha: 1.0, // Start fully bright, decays over time
         });
       }
     };
@@ -106,9 +122,9 @@ export const InteractiveGrid = () => {
       const center_c = Math.floor(center_dy / 2);
       const center_r = Math.floor(center_dy / 2);
 
-      // Draw Grid Lines
+      // Draw Grid Lines - Made more subtle for a cleaner, professional look
       ctx.globalAlpha = 1;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)'; 
       ctx.lineWidth = 1;
       ctx.beginPath();
 
