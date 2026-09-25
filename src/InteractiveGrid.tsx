@@ -12,23 +12,26 @@ export const InteractiveGrid = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const CELL_SIZE = 45;
     let width = 0;
     let height = 0;
-    let cols = 0;
-    let rows = 0;
-
+    
+    // Isometric Tile Dimensions
+    const TILE_W = 80;
+    const TILE_H = 40;
+    let offsetX = 0;
+    let offsetY = 0;
+    let gridRadius = 0;
+    
     const updateSize = () => {
-      const maxDim = Math.max(window.innerWidth, window.innerHeight);
-      // Make it large enough to cover the screen even when rotated
-      width = maxDim * 2.5; 
-      height = maxDim * 2.5;
+      width = window.innerWidth;
+      height = window.innerHeight;
       canvas.width = width;
       canvas.height = height;
-      canvas.style.width = `${width}px`;
-      canvas.style.height = `${height}px`;
-      cols = Math.floor(width / CELL_SIZE);
-      rows = Math.floor(height / CELL_SIZE);
+      offsetX = width / 2; // Center horizontally
+      offsetY = height / 2; // Center vertically
+      
+      // Calculate how many tiles we need to draw to cover the screen
+      gridRadius = Math.ceil(Math.max(width / (TILE_W / 2), height / (TILE_H / 2))) + 2;
     };
 
     updateSize();
@@ -37,15 +40,28 @@ export const InteractiveGrid = () => {
     const activeCells = new Map<string, { color: string, alpha: number }>();
     let animationFrameId: number;
 
+    const drawPolygon = (r: number, c: number, fillStyle: string, alpha: number) => {
+      const sx = (c - r) * (TILE_W / 2) + offsetX;
+      const sy = (c + r) * (TILE_H / 2) + offsetY;
+
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = fillStyle;
+      ctx.beginPath();
+      ctx.moveTo(sx, sy - TILE_H / 2); // Top
+      ctx.lineTo(sx + TILE_W / 2, sy); // Right
+      ctx.lineTo(sx, sy + TILE_H / 2); // Bottom
+      ctx.lineTo(sx - TILE_W / 2, sy); // Left
+      ctx.closePath();
+      ctx.fill();
+    };
+
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw active cells
+      // Draw active cells first (filled)
       activeCells.forEach((cell, key) => {
-        const [x, y] = key.split(',').map(Number);
-        ctx.fillStyle = cell.color;
-        ctx.globalAlpha = cell.alpha;
-        ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        const [r, c] = key.split(',').map(Number);
+        drawPolygon(r, c, cell.color, cell.alpha);
         
         cell.alpha -= 0.015; // fade out speed
         if (cell.alpha <= 0) {
@@ -53,19 +69,28 @@ export const InteractiveGrid = () => {
         }
       });
 
-      // Draw grid lines
+      // Draw Grid Lines
       ctx.globalAlpha = 1;
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
       ctx.lineWidth = 1;
-
       ctx.beginPath();
-      for (let i = 0; i <= cols; i++) {
-        ctx.moveTo(i * CELL_SIZE, 0);
-        ctx.lineTo(i * CELL_SIZE, height);
-      }
-      for (let i = 0; i <= rows; i++) {
-        ctx.moveTo(0, i * CELL_SIZE);
-        ctx.lineTo(width, i * CELL_SIZE);
+
+      for (let i = -gridRadius; i <= gridRadius; i++) {
+        // Line along row i (constant r)
+        const sx1 = (-gridRadius - i) * (TILE_W / 2) + offsetX;
+        const sy1 = (-gridRadius + i) * (TILE_H / 2) + offsetY;
+        const sx2 = (gridRadius - i) * (TILE_W / 2) + offsetX;
+        const sy2 = (gridRadius + i) * (TILE_H / 2) + offsetY;
+        ctx.moveTo(sx1, sy1);
+        ctx.lineTo(sx2, sy2);
+
+        // Line along col i (constant c)
+        const sx3 = (i - (-gridRadius)) * (TILE_W / 2) + offsetX;
+        const sy3 = (i + (-gridRadius)) * (TILE_H / 2) + offsetY;
+        const sx4 = (i - gridRadius) * (TILE_W / 2) + offsetX;
+        const sy4 = (i + gridRadius) * (TILE_H / 2) + offsetY;
+        ctx.moveTo(sx3, sy3);
+        ctx.lineTo(sx4, sy4);
       }
       ctx.stroke();
 
@@ -75,10 +100,18 @@ export const InteractiveGrid = () => {
     draw();
 
     const handleMouseMove = (e: MouseEvent) => {
-      const x = Math.floor(e.offsetX / CELL_SIZE);
-      const y = Math.floor(e.offsetY / CELL_SIZE);
+      const sx = e.clientX;
+      const sy = e.clientY;
+
+      // Inverse isometric projection to find grid coordinates (r, c)
+      const dx = (sx - offsetX) / (TILE_W / 2);
+      const dy = (sy - offsetY) / (TILE_H / 2);
+
+      const c = Math.floor((dx + dy) / 2);
+      const r = Math.floor((dy - dx) / 2);
+
+      const key = `${r},${c}`;
       
-      const key = `${x},${y}`;
       if (!activeCells.has(key)) {
         activeCells.set(key, {
           color: COLORS[Math.floor(Math.random() * COLORS.length)],
@@ -93,32 +126,26 @@ export const InteractiveGrid = () => {
       }
     };
 
-    canvas.addEventListener('mousemove', handleMouseMove);
+    // Attach to window so it captures mouse events globally, even if canvas is under other elements
+    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       window.removeEventListener('resize', updateSize);
-      canvas.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-center bg-[#0a0a0a]">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-[#0a0a0a]">
+      <canvas ref={canvasRef} className="block" />
+      
       {/* Background gradient to fade the edges seamlessly into the body background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_75%)] z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_85%)] z-10"></div>
       
       {/* Decorative glows placed over the grid */}
       <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-blue-500/20 blur-[100px] opacity-40 rounded-full z-10 pointer-events-none"></div>
       <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-[#caff00]/20 blur-[100px] opacity-20 rounded-full z-10 pointer-events-none"></div>
-
-      <canvas
-        ref={canvasRef}
-        className="pointer-events-auto absolute top-1/2 left-1/2"
-        style={{
-          transform: 'translate(-50%, -50%) rotateX(60deg) rotateZ(-45deg)',
-          transformStyle: 'preserve-3d',
-        }}
-      />
     </div>
   );
 };
