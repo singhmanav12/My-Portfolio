@@ -110,8 +110,8 @@ const App = () => {
                 Ideas<br/>Build<br/>Code<br/>Deploy<br/>Repeat.
               </div>
 
-              <div className="absolute bottom-12 -right-8 bg-[#caff00] text-black w-36 h-36 rounded-full flex flex-col items-center justify-center font-bold text-center text-xs p-4 shadow-2xl z-30 animate-[spin_10s_linear_infinite] hover:animate-none transition-transform hover:scale-110 cursor-pointer">
-                AVAILABLE FOR INTERNSHIPS<br/><br/>OPEN TO<br/>COLLABORATION<br/><ArrowRight size={16} className="mx-auto mt-1" />
+              <div className="absolute bottom-12 -right-8 bg-[#caff00] text-black w-40 h-40 rounded-full flex flex-col items-center justify-center font-bold text-center text-[10px] leading-tight p-4 shadow-2xl z-30 animate-[spin_10s_linear_infinite] hover:animate-none transition-transform hover:scale-110 cursor-pointer">
+                AVAILABLE FOR<br/>INTERNSHIPS &<br/>FULL-TIME ROLES<br/><br/>OPEN TO<br/>COLLABORATION<br/><ArrowRight size={14} className="mx-auto mt-1" />
               </div>
 
               <div className="absolute -bottom-16 right-32 text-slate-300 font-[Caveat] text-2xl transform rotate-12 z-20">
