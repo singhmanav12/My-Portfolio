@@ -2,7 +2,6 @@ import React from 'react';
 import { portfolioData } from './data/portfolioData';
 import { InteractiveGrid } from './components/ui/InteractiveGrid';
 import { Navbar } from './components/layout/Navbar';
-import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
@@ -13,7 +12,7 @@ import { Contact } from './components/sections/Contact';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-50 font-sans selection:bg-[#caff00]/30 overflow-x-hidden flex flex-col justify-between">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-50 font-sans selection:bg-[#caff00]/30 overflow-x-hidden">
       {/* Interactive Background Canvas Grid */}
       <InteractiveGrid />
 
@@ -21,7 +20,7 @@ const App: React.FC = () => {
       <Navbar />
 
       {/* Main Content Sections */}
-      <main className="relative z-10 flex-grow">
+      <main className="relative z-10">
         <Hero hero={portfolioData.hero} />
         <About about={portfolioData.about} />
         <Projects projects={portfolioData.projects} />
@@ -36,9 +35,6 @@ const App: React.FC = () => {
           </div>
         </section>
       </main>
-
-      {/* Systematic Footer */}
-      <Footer />
     </div>
   );
 };

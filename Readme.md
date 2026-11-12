@@ -14,42 +14,40 @@ A modern, responsive portfolio website built with **React 19**, **TypeScript**, 
 
 ## 📁 Project Structure
 
-```text
 My-Portfolio/
 ├── public/
-│   └── resume.pdf                 # Resume document
+│   └── resume.pdf                     # Kept: Your active resume
 ├── src/
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── Navbar.tsx         # Header navigation with mobile responsive links
-│   │   │   └── Footer.tsx         # Site footer with copyright & quick links
+│   │   │   └── Navbar.tsx         # Header navigation with mobile responsive links
 │   │   ├── sections/
-│   │   │   ├── Hero.tsx           # Hero section with headline, badges & CTAs
-│   │   │   ├── About.tsx          # About me section with statistics & quote card
-│   │   │   ├── Projects.tsx       # Featured project showcase cards
-│   │   │   ├── Toolkit.tsx        # Technical skills categorized with icons
-│   │   │   ├── Experience.tsx     # Interactive timeline of highlights & events
-│   │   │   ├── Learning.tsx       # Current topics of study
-│   │   │   └── Contact.tsx        # Contact call-to-action & social links
+│   │   │   ├── Hero.tsx               # Hero headline, CTAs, photo frame & badges
+│   │   │   ├── About.tsx              # Bio, statistics counter & quote card
+│   │   │   ├── Projects.tsx           # Selected projects showcase grid
+│   │   │   ├── Toolkit.tsx            # Categorized skills matrix with icons
+│   │   │   ├── Experience.tsx         # Horizontal timeline highlights
+│   │   │   ├── Learning.tsx           # Currently learning list
+│   │   │   └── Contact.tsx            # "Let's Talk" CTA, contact links & social icons
 │   │   └── ui/
-│   │       ├── InteractiveGrid.tsx# Canvas-based isometric background grid
-│   │       └── TechIcon.tsx       # Dynamic icon mapping component
+│   │       ├── InteractiveGrid.tsx    # Canvas isometric background animation
+│   │       └── TechIcon.tsx           # Dynamic technology icon dispatcher
 │   ├── data/
-│   │   └── portfolioData.ts       # Typed portfolio content data
+│   │   └── portfolioData.ts           # Centralized portfolio content
 │   ├── types/
-│   │   └── portfolio.ts           # TypeScript interfaces & types
-│   ├── App.tsx                    # Root application component
-│   ├── index.css                  # Tailwind styles and custom utilities
-│   └── main.tsx                   # React DOM entry point
+│   │   └── portfolio.ts               # Strict TypeScript definitions for all data
+│   ├── App.tsx                        # Clean, high-level orchestrator component
+│   ├── index.css                      # Tailwind v4 styles & custom utilities
+│   └── main.tsx                       # React DOM entry point
 ├── .gitignore
-├── .oxlintrc.json                 # Oxlint linter configuration
-├── index.html                     # HTML root template with preconnect fonts
+├── .oxlintrc.json
+├── index.html
 ├── package.json
+├── README.md
 ├── tsconfig.json
 ├── tsconfig.app.json
 ├── tsconfig.node.json
-└── vite.config.ts                 # Vite bundler configuration
-```
+└── vite.config.ts
 
 ---
 
