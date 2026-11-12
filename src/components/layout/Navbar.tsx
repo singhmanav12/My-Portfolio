@@ -4,9 +4,7 @@ import { ArrowRight } from 'lucide-react';
 export const Navbar: React.FC = () => {
   return (
     <nav className="relative z-50 flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
-      <div className="text-3xl font-black tracking-tighter">
-        MPS<span className="text-[#caff00]">.</span>
-      </div>
+      <div className="text-3xl font-black tracking-tighter">MPS</div>
       <div className="hidden md:flex items-center gap-8">
         <a href="#" className="nav-link text-white">Home</a>
         <a href="#about" className="nav-link">About</a>
