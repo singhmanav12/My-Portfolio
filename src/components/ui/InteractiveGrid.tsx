@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 // Using the portfolio's specific brand colors for a cohesive, professional look
 const COLORS = ['#caff00', '#0ea5e9']; // Neon Lime, Sky Blue
@@ -15,19 +15,19 @@ export const InteractiveGrid = () => {
 
     let width = 0;
     let height = 0;
-    
+
     // Isometric Tile Dimensions
     const TILE_W = 80;
     const TILE_H = 40;
     let baseOffsetX = 0;
     let baseOffsetY = 0;
     let gridRadius = 0;
-    
+
     // Global mouse tracking
     let mouseX = -1000;
     let mouseY = -1000;
     let lastHoveredKey = '';
-    
+
     const updateSize = () => {
       width = window.innerWidth;
       height = window.innerHeight;
@@ -35,7 +35,7 @@ export const InteractiveGrid = () => {
       canvas.height = height;
       baseOffsetX = width / 2;
       baseOffsetY = height / 2;
-      
+
       // Calculate how many tiles we need to draw to cover the screen
       gridRadius = Math.ceil(Math.max(width / (TILE_W / 2), height / (TILE_H / 2))) + 2;
     };
@@ -43,7 +43,7 @@ export const InteractiveGrid = () => {
     updateSize();
     window.addEventListener('resize', updateSize);
 
-    const activeCells = new Map<string, { color: string, alpha: number }>();
+    const activeCells = new Map<string, { color: string; alpha: number }>();
     let animationFrameId: number;
 
     const drawPolygon = (r: number, c: number, fillStyle: string, alpha: number, currentOffsetY: number) => {
@@ -65,20 +65,20 @@ export const InteractiveGrid = () => {
       ctx.globalAlpha = alpha * 0.8; // Crisp border
       ctx.strokeStyle = fillStyle;
       ctx.lineWidth = 1;
-      
-      // Optional subtle neon glow
+
+      // Subtle neon glow
       ctx.shadowColor = fillStyle;
       ctx.shadowBlur = 10;
-      
+
       ctx.stroke();
-      
+
       // Reset shadow for performance on other drawings
       ctx.shadowBlur = 0;
     };
 
     const activateCell = (sx: number, sy: number, currentOffsetY: number) => {
       if (sx < 0 || sy < 0) return;
-      
+
       const dx = (sx - baseOffsetX) / (TILE_W / 2);
       const dy = (sy - currentOffsetY) / (TILE_H / 2);
 
@@ -86,7 +86,7 @@ export const InteractiveGrid = () => {
       const r = Math.floor((dy - dx) / 2);
 
       const key = `${r},${c}`;
-      
+
       // Only activate if we moved to a new cell
       if (key !== lastHoveredKey) {
         lastHoveredKey = key;
@@ -99,9 +99,9 @@ export const InteractiveGrid = () => {
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
-      
+
       // Create a subtle parallax scroll effect (grid moves slower than the page)
-      const currentOffsetY = baseOffsetY - (window.scrollY * 0.5);
+      const currentOffsetY = baseOffsetY - window.scrollY * 0.5;
 
       // Check which cell is currently under the mouse, taking scroll into account
       activateCell(mouseX, mouseY, currentOffsetY);
@@ -110,7 +110,7 @@ export const InteractiveGrid = () => {
       activeCells.forEach((cell, key) => {
         const [r, c] = key.split(',').map(Number);
         drawPolygon(r, c, cell.color, cell.alpha, currentOffsetY);
-        
+
         cell.alpha -= 0.015; // fade out speed
         if (cell.alpha <= 0) {
           activeCells.delete(key);
@@ -122,9 +122,9 @@ export const InteractiveGrid = () => {
       const center_c = Math.floor(center_dy / 2);
       const center_r = Math.floor(center_dy / 2);
 
-      // Draw Grid Lines - Made more subtle for a cleaner, professional look
+      // Draw Grid Lines - Made subtle for a clean, professional look
       ctx.globalAlpha = 1;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)'; 
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
       ctx.lineWidth = 1;
       ctx.beginPath();
 
@@ -132,7 +132,7 @@ export const InteractiveGrid = () => {
         const r_idx = center_r + i;
         const c_start = center_c - gridRadius;
         const c_end = center_c + gridRadius;
-        
+
         // Line along row r_idx
         const sx1 = (c_start - r_idx) * (TILE_W / 2) + baseOffsetX;
         const sy1 = (c_start + r_idx) * (TILE_H / 2) + currentOffsetY;
@@ -186,13 +186,14 @@ export const InteractiveGrid = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-[#0a0a0a]">
       <canvas ref={canvasRef} className="block" />
-      
+
       {/* Background gradient to fade the edges seamlessly into the body background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_85%)] z-10"></div>
-      
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_85%)] z-10" />
+
       {/* Decorative glows placed over the grid */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-blue-500/20 blur-[100px] opacity-40 rounded-full z-10 pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-[#caff00]/20 blur-[100px] opacity-20 rounded-full z-10 pointer-events-none"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-blue-500/20 blur-[100px] opacity-40 rounded-full z-10 pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] bg-[#caff00]/20 blur-[100px] opacity-20 rounded-full z-10 pointer-events-none" />
     </div>
   );
 };
+

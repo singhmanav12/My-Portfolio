@@ -1,11 +1,13 @@
-export const portfolioData = {
+import type { PortfolioData } from '../types/portfolio';
+
+export const portfolioData: PortfolioData = {
   hero: {
     name: "MANAVENDRA\nPRATAP SINGH",
     role: "CSE STUDENT • SOFTWARE DEVELOPER • CLOUD & DEVOPS ENTHUSIAST",
     description: "I build practical digital solutions with code, cloud and emerging technologies.",
     buttons: {
       primary: { text: "View My Work", link: "#projects" },
-      secondary: { text: "Download Resume", link: "#" }
+      secondary: { text: "Download Resume", link: "/resume.pdf" }
     },
     techChips: [
       { name: "Python", icon: "SiPython" },
@@ -66,7 +68,7 @@ export const portfolioData = {
     Languages: ["Python", "Java", "JavaScript"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Linux", "Terraform"],
     Development: ["React", "HTML", "CSS", "REST APIs"],
-    Tools: ["Git", "GitHub"] // Note: Kept strictly to verified info
+    Tools: ["Git", "GitHub"]
   },
   experience: [
     {
@@ -104,3 +106,4 @@ export const portfolioData = {
     x: "https://x.com/singhmanav12"
   }
 };
+
