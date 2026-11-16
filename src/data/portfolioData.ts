@@ -65,9 +65,9 @@ export const portfolioData: PortfolioData = {
     quote: "I don't just write code. I like building things that actually work."
   },
   toolkit: {
-    Languages: ["Python", "Java", "JavaScript"],
+    "Primary Tech Stack": ["Python", "Java", "Go", "PostgreSQL", "AWS", "Docker", "Kubernetes"],
     "Cloud & DevOps": ["AWS", "Docker", "Kubernetes", "Linux", "Terraform"],
-    Development: ["React", "HTML", "CSS", "REST APIs"],
+    Development: ["React", "JavaScript", "HTML", "CSS", "REST APIs"],
     Tools: ["Git", "GitHub"]
   },
   experience: [

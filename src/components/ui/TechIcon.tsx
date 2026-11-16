@@ -13,6 +13,8 @@ import {
   SiHtml5,
   SiCss,
   SiGithub,
+  SiGo,
+  SiPostgresql,
 } from 'react-icons/si';
 
 interface TechIconProps {
@@ -32,7 +34,16 @@ export const TechIcon: React.FC<TechIconProps> = ({ name, size = 16, className =
     case 'docker':
       return <SiDocker size={size} className={`text-[#2496ED] ${className}`} />;
     case 'kubernetes':
+    case 'k8s':
       return <SiKubernetes size={size} className={`text-[#326CE5] ${className}`} />;
+    case 'go':
+    case 'golang':
+      return <SiGo size={size} className={`text-[#00ADD8] ${className}`} />;
+    case 'postgresql':
+    case 'postgres':
+    case 'postreg sql':
+    case 'postgres sql':
+      return <SiPostgresql size={size} className={`text-[#336791] ${className}`} />;
     case 'react':
       return <SiReact size={size} className={`text-[#61DAFB] ${className}`} />;
     case 'git':
