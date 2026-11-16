@@ -19,9 +19,11 @@ export const Hero: React.FC<HeroProps> = ({ hero }) => {
         <div className="flex-1 space-y-6">
           <p className="text-slate-300 uppercase tracking-[0.2em] text-xs font-semibold">Hello, I'm</p>
 
-          <h1 className="text-6xl md:text-[5.5rem] font-black uppercase tracking-tighter leading-[0.9] text-white">
-            <span className="block">MANAVENDRA</span>
-            <span className="block text-outline">PRATAP SINGH</span>
+          <h1 className="text-5xl sm:text-6xl md:text-[5rem] lg:text-[5.5rem] font-black uppercase leading-[0.9] text-white">
+            <span className="block tracking-tighter">MANAVENDRA</span>
+            <span className="block text-outline">
+              PRATAP SINGH
+            </span>
           </h1>
 
           <p className="text-xs md:text-sm font-mono text-slate-400 uppercase tracking-[0.2em] pt-2">
