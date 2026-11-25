@@ -23,12 +23,14 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       name: "Student 360",
-      category: "Web App",
+      category: "Web Extension",
       description: "Academic and student management platform.",
       status: "Placeholder until I provide the actual project details.",
       tech: ["Placeholder"],
+      image: "/images/student-360.png",
       imagePlaceholder: "[ Student 360 Image ]",
-      link: "#"
+      link: "https://student360.antideploy.app/",
+      github: "https://github.com/singhmanav12/Student-360"
     },
     {
       name: "Civic Issue Platform",

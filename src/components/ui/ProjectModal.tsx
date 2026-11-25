@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { ExternalLink, X } from 'lucide-react';
+import { SiGithub } from 'react-icons/si';
 import type { ProjectItem } from '../../types/portfolio';
 
 interface ProjectModalProps {
@@ -23,7 +24,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
   if (!project) return null;
 
-  const hasExternalLink = Boolean(project.link && project.link !== '#');
+  const hasLiveDemo = Boolean(project.link && project.link !== '#');
+  const hasSourceCode = Boolean(project.github && project.github !== '#');
 
   return (
     <div
@@ -37,8 +39,16 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         className="glass-card bg-[#111111] border border-white/15 max-w-2xl w-full overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="h-56 bg-slate-950 flex items-center justify-center border-b border-white/10 relative">
-          <p className="text-slate-500 font-mono text-sm">{project.imagePlaceholder}</p>
+        <div className="h-56 bg-slate-950 flex items-center justify-center border-b border-white/10 relative p-6">
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={project.name}
+              className="max-h-36 max-w-[75%] object-contain drop-shadow-[0_12px_30px_rgba(124,58,237,0.25)]"
+            />
+          ) : (
+            <p className="text-slate-500 font-mono text-sm">{project.imagePlaceholder}</p>
+          )}
           <button
             type="button"
             onClick={onClose}
@@ -81,20 +91,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-            {hasExternalLink ? (
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary text-sm"
-              >
-                Open Project <ExternalLink size={16} />
-              </a>
-            ) : (
-              <span className="text-xs font-mono text-slate-500">
-                Live demo / repository link not added yet.
-              </span>
-            )}
+            <div className="flex flex-wrap items-center gap-3">
+              {hasLiveDemo && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-sm"
+                >
+                  Live Demo <ExternalLink size={16} />
+                </a>
+              )}
+              {hasSourceCode && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary text-sm"
+                >
+                  <SiGithub size={16} /> Source Code
+                </a>
+              )}
+              {!hasLiveDemo && !hasSourceCode && (
+                <span className="text-xs font-mono text-slate-500">
+                  Live demo &amp; source code links not added yet.
+                </span>
+              )}
+            </div>
             <button
               type="button"
               onClick={onClose}

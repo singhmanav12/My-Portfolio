@@ -27,8 +27,10 @@ export interface ProjectItem {
   description: string;
   status?: string;
   tech: string[];
+  image?: string;
   imagePlaceholder: string;
   link: string;
+  github?: string;
 }
 
 export interface StatItem {
