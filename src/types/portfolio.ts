@@ -21,11 +21,17 @@ export interface HeroData {
   backgroundText: string;
 }
 
+export interface ProjectFeature {
+  title: string;
+  description: string;
+}
+
 export interface ProjectItem {
   name: string;
   category: string;
   description: string;
   status?: string;
+  features?: ProjectFeature[];
   tech: string[];
   image?: string;
   imagePlaceholder: string;

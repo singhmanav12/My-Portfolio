@@ -24,9 +24,22 @@ export const portfolioData: PortfolioData = {
     {
       name: "Student 360",
       category: "Web Extension",
-      description: "Academic and student management platform.",
-      status: "Placeholder until I provide the actual project details.",
-      tech: ["Placeholder"],
+      description: "A browser extension that blocks short-form content, detects real-time distractions like phone usage or daydreaming, and analyzes productive vs. distracting study sessions with AI.",
+      features: [
+        {
+          title: "Focus Mode",
+          description: "Automatically blocks distracting short-form feeds such as YouTube Shorts and Reels so you stay on task."
+        },
+        {
+          title: "Advanced Focus Mode",
+          description: "With camera permission, uses a model trained on a custom dataset to monitor attention and trigger a visual alert with an audio beep if distracted for over 10 seconds (phone usage, daydreaming, looking away, or multiple people around)."
+        },
+        {
+          title: "AI Productivity Analytics",
+          description: "Logs watched YouTube video titles in JSON and batches them to the Gemini API (every 3 hours to optimize token usage) to classify productive study (e.g., DSA prep) vs. distractions and provide personalized productivity insights."
+        }
+      ],
+      tech: ["Plasmo", "Chrome Extension", "Gemini API", "Custom ML Model"],
       image: "/images/student-360.png",
       imagePlaceholder: "[ Student 360 Image ]",
       link: "https://student360.antideploy.app/",

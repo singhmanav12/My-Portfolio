@@ -36,7 +36,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       aria-labelledby="project-modal-title"
     >
       <div
-        className="glass-card bg-[#111111] border border-white/15 max-w-2xl w-full overflow-hidden shadow-2xl"
+        className="glass-card bg-[#111111] border border-white/15 max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="h-56 bg-slate-950 flex items-center justify-center border-b border-white/10 relative p-6">
@@ -75,6 +75,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               <p className="text-sm text-slate-400 italic mt-2">{project.status}</p>
             )}
           </div>
+
+          {project.features && project.features.length > 0 && (
+            <div>
+              <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">Core Features</p>
+              <div className="space-y-3">
+                {project.features.map((feature, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 rounded-xl bg-slate-950/70 border border-white/5 space-y-1"
+                  >
+                    <h4 className="text-sm font-bold text-[#caff00]">{feature.title}</h4>
+                    <p className="text-sm text-slate-300 leading-relaxed">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div>
             <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-3">Tech Stack</p>
