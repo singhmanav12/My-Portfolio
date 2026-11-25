@@ -53,6 +53,38 @@ export const portfolioData: PortfolioData = {
       tech: ["Placeholder"],
       imagePlaceholder: "[ Cloud Infra Image ]",
       link: "#"
+    },
+    {
+      name: "Sample 1",
+      category: "Sample",
+      description: "Placeholder — Sample 1 project details will go here.",
+      tech: ["Placeholder"],
+      imagePlaceholder: "[ Sample 1 Image ]",
+      link: "#"
+    },
+    {
+      name: "Sample 2",
+      category: "Sample",
+      description: "Placeholder — Sample 2 project details will go here.",
+      tech: ["Placeholder"],
+      imagePlaceholder: "[ Sample 2 Image ]",
+      link: "#"
+    },
+    {
+      name: "Sample 3",
+      category: "Sample",
+      description: "Placeholder — Sample 3 project details will go here.",
+      tech: ["Placeholder"],
+      imagePlaceholder: "[ Sample 3 Image ]",
+      link: "#"
+    },
+    {
+      name: "Sample 4",
+      category: "Sample",
+      description: "Placeholder — Sample 4 project details will go here.",
+      tech: ["Placeholder"],
+      imagePlaceholder: "[ Sample 4 Image ]",
+      link: "#"
     }
   ],
   about: {
