@@ -4,9 +4,10 @@ import type { ContactData } from '../../types/portfolio';
 
 interface ContactProps {
   contact: ContactData;
+  onOpenContact: () => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ contact }) => {
+export const Contact: React.FC<ContactProps> = ({ contact, onOpenContact }) => {
   return (
     <div id="contact" className="relative group">
       <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-6">
@@ -17,9 +18,9 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
       </p>
 
       <div className="flex flex-wrap items-center gap-6 relative z-10">
-        <a href={`mailto:${contact.email}`} className="btn-primary">
+        <button type="button" onClick={onOpenContact} className="btn-primary cursor-pointer">
           Let's Talk <ArrowRight size={18} />
-        </a>
+        </button>
         <div className="flex gap-4 items-center">
           <a
             href={contact.github}

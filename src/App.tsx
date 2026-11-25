@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { portfolioData } from './data/portfolioData';
 import { InteractiveGrid } from './components/ui/InteractiveGrid';
+import { ContactModal } from './components/ui/ContactModal';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
@@ -19,6 +20,7 @@ export const App: React.FC = () => {
   const [view, setView] = useState<AppView>(() =>
     window.location.hash === ALL_PROJECTS_HASH ? 'all-projects' : 'portfolio'
   );
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const pendingHashRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -84,7 +86,10 @@ export const App: React.FC = () => {
       <InteractiveGrid />
 
       {/* Navigation */}
-      <Navbar onNavigate={handleNavbarNavigate} />
+      <Navbar
+        onNavigate={handleNavbarNavigate}
+        onOpenContact={() => setIsContactOpen(true)}
+      />
 
       {/* Main Content Sections */}
       <main className="relative z-10">
@@ -105,12 +110,21 @@ export const App: React.FC = () => {
             <section className="py-24 max-w-7xl mx-auto px-8 border-t border-white/5">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                 <Learning learning={portfolioData.learning} />
-                <Contact contact={portfolioData.contact} />
+                <Contact
+                  contact={portfolioData.contact}
+                  onOpenContact={() => setIsContactOpen(true)}
+                />
               </div>
             </section>
           </>
         )}
       </main>
+
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+        fallbackEmail={portfolioData.contact.email}
+      />
     </div>
   );
 };

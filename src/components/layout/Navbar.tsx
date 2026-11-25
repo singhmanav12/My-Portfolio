@@ -3,9 +3,10 @@ import { ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate?: (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => void;
+  onOpenContact?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenContact }) => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     if (onNavigate) {
       onNavigate(e, hash);
@@ -29,13 +30,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         <a href="#experience" onClick={(e) => handleClick(e, '#experience')} className="nav-link">Experience</a>
         <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="nav-link">Contact</a>
       </div>
-      <a
-        href="#contact"
-        onClick={(e) => handleClick(e, '#contact')}
-        className="hidden md:inline-flex px-5 py-2 bg-[#caff00] text-black font-bold rounded-full text-sm hover:bg-[#dfff33] transition-colors items-center gap-2"
+      <button
+        type="button"
+        onClick={onOpenContact}
+        className="hidden md:inline-flex px-5 py-2 bg-[#caff00] text-black font-bold rounded-full text-sm hover:bg-[#dfff33] transition-colors items-center gap-2 cursor-pointer"
       >
         Let's Talk <ArrowRight size={16} />
-      </a>
+      </button>
     </nav>
   );
 };
