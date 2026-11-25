@@ -5,6 +5,7 @@ import { ContactModal } from './components/ui/ContactModal';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
+import { AboutDetail } from './components/sections/AboutDetail';
 import { Projects } from './components/sections/Projects';
 import { AllProjects } from './components/sections/AllProjects';
 import { Toolkit } from './components/sections/Toolkit';
@@ -12,27 +13,33 @@ import { Experience } from './components/sections/Experience';
 import { Learning } from './components/sections/Learning';
 import { Contact } from './components/sections/Contact';
 
-type AppView = 'portfolio' | 'all-projects';
+type AppView = 'portfolio' | 'all-projects' | 'about-me';
 
 const ALL_PROJECTS_HASH = '#all-projects';
+const ABOUT_ME_HASH = '#about-me';
+
+const getViewFromHash = (hash: string): AppView => {
+  if (hash === ALL_PROJECTS_HASH) return 'all-projects';
+  if (hash === ABOUT_ME_HASH) return 'about-me';
+  return 'portfolio';
+};
 
 export const App: React.FC = () => {
-  const [view, setView] = useState<AppView>(() =>
-    window.location.hash === ALL_PROJECTS_HASH ? 'all-projects' : 'portfolio'
-  );
+  const [view, setView] = useState<AppView>(() => getViewFromHash(window.location.hash));
   const [isContactOpen, setIsContactOpen] = useState(false);
   const pendingHashRef = useRef<string | null>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === ALL_PROJECTS_HASH) {
-        setView('all-projects');
-        window.scrollTo(0, 0);
-      } else {
+      const nextView = getViewFromHash(window.location.hash);
+      if (nextView === 'portfolio') {
         if (!pendingHashRef.current) {
           pendingHashRef.current = window.location.hash || '#';
         }
         setView('portfolio');
+      } else {
+        setView(nextView);
+        window.scrollTo(0, 0);
       }
     };
 
@@ -57,13 +64,13 @@ export const App: React.FC = () => {
     }
   }, [view]);
 
-  const handleOpenAllProjects = () => {
-    window.location.hash = ALL_PROJECTS_HASH;
-    setView('all-projects');
+  const handleOpenSubView = (hash: string, nextView: Exclude<AppView, 'portfolio'>) => {
+    window.location.hash = hash;
+    setView(nextView);
     window.scrollTo(0, 0);
   };
 
-  const handleBackToPortfolio = (targetHash = '#projects') => {
+  const handleBackToPortfolio = (targetHash = '#') => {
     pendingHashRef.current = targetHash;
     if (targetHash === '#') {
       window.history.pushState(null, '', window.location.pathname);
@@ -74,7 +81,7 @@ export const App: React.FC = () => {
   };
 
   const handleNavbarNavigate = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-    if (view === 'all-projects') {
+    if (view !== 'portfolio') {
       e.preventDefault();
       handleBackToPortfolio(hash);
     }
@@ -98,11 +105,24 @@ export const App: React.FC = () => {
             projects={portfolioData.projects}
             onBack={() => handleBackToPortfolio('#projects')}
           />
+        ) : view === 'about-me' ? (
+          <AboutDetail
+            about={portfolioData.about}
+            learning={portfolioData.learning}
+            onBack={() => handleBackToPortfolio('#about')}
+            onOpenContact={() => setIsContactOpen(true)}
+          />
         ) : (
           <>
             <Hero hero={portfolioData.hero} />
-            <About about={portfolioData.about} />
-            <Projects projects={portfolioData.projects} onViewAll={handleOpenAllProjects} />
+            <About
+              about={portfolioData.about}
+              onMoreAbout={() => handleOpenSubView(ABOUT_ME_HASH, 'about-me')}
+            />
+            <Projects
+              projects={portfolioData.projects}
+              onViewAll={() => handleOpenSubView(ALL_PROJECTS_HASH, 'all-projects')}
+            />
             <Toolkit toolkit={portfolioData.toolkit} />
             <Experience experience={portfolioData.experience} />
 

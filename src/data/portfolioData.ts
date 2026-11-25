@@ -94,7 +94,36 @@ export const portfolioData: PortfolioData = {
       { value: "[HACKATHON COUNT]", label: "Hackathons / Technical Events" },
       { value: "[YEARS LEARNING]", label: "Things I'm Still Learning" }
     ],
-    quote: "I don't just write code. I like building things that actually work."
+    quote: "I don't just write code. I like building things that actually work.",
+    detail: {
+      headline: "CSE Student, Builder & Cloud Enthusiast.",
+      subheadline: "A closer look at my background, engineering focus, and what drives how I build software.",
+      story: [
+        "I am a Computer Science Engineering student interested in software development, cloud computing, DevOps and AI. I enjoy turning ideas into working products, experimenting with new technologies, and building projects through hackathons and real-world challenges.",
+        "[ Add a second paragraph here sharing how you got started with coding, what keeps you curious, and the kind of engineering problems you enjoy tackling next. ]"
+      ],
+      education: {
+        degree: "Computer Science Engineering",
+        institution: "[ YOUR COLLEGE / UNIVERSITY NAME ]",
+        period: "[ START YEAR – EXPECTED GRADUATION ]",
+        highlights: "[ Add key coursework, clubs, or academic highlights here. ]"
+      },
+      focusAreas: [
+        {
+          title: "Software & Backend Engineering",
+          description: "Building practical applications, APIs, and data-backed services using Python, Java, Go, React, and PostgreSQL."
+        },
+        {
+          title: "Cloud & DevOps",
+          description: "Exploring containerization, orchestration, and infrastructure workflows with AWS, Docker, Kubernetes, Linux, and Terraform."
+        },
+        {
+          title: "Hackathons & Rapid Prototyping",
+          description: "Collaborating in technical events like NNOVIK 6.0 and SKITECH INNOTHON to take ideas from zero to working demo."
+        }
+      ],
+      beyondCode: "[ Share hobbies, interests outside tech, or personal goals you'd like visitors to know about. ]"
+    }
   },
   toolkit: {
     "Primary Tech Stack": ["Python", "Java", "Go", "PostgreSQL", "AWS", "Docker", "Kubernetes"],

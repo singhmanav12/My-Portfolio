@@ -4,9 +4,10 @@ import type { AboutData } from '../../types/portfolio';
 
 interface AboutProps {
   about: AboutData;
+  onMoreAbout: () => void;
 }
 
-export const About: React.FC<AboutProps> = ({ about }) => {
+export const About: React.FC<AboutProps> = ({ about, onMoreAbout }) => {
   return (
     <section id="about" className="py-24 max-w-7xl mx-auto px-8">
       <div className="flex flex-col lg:flex-row gap-16">
@@ -47,9 +48,13 @@ export const About: React.FC<AboutProps> = ({ about }) => {
               {about.quote}
             </p>
             <div className="mt-8 pl-4">
-              <a href="#contact" className="btn-secondary text-sm px-6 py-2">
+              <button
+                type="button"
+                onClick={onMoreAbout}
+                className="btn-secondary text-sm px-6 py-2 cursor-pointer"
+              >
                 More About Me <ArrowRight size={14} />
-              </a>
+              </button>
             </div>
           </div>
         </div>

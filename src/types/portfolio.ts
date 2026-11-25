@@ -36,10 +36,30 @@ export interface StatItem {
   label: string;
 }
 
+export interface AboutFocusArea {
+  title: string;
+  description: string;
+}
+
+export interface AboutDetailData {
+  headline: string;
+  subheadline: string;
+  story: string[];
+  education: {
+    degree: string;
+    institution: string;
+    period: string;
+    highlights: string;
+  };
+  focusAreas: AboutFocusArea[];
+  beyondCode: string;
+}
+
 export interface AboutData {
   text: string;
   stats: StatItem[];
   quote: string;
+  detail: AboutDetailData;
 }
 
 export interface ToolkitData {
