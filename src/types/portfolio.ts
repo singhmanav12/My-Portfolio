@@ -57,6 +57,7 @@ export interface ContactData {
   heading: string;
   subheading: string;
   email: string;
+  formspreeEndpoint: string;
   github: string;
   linkedin: string;
   x: string;

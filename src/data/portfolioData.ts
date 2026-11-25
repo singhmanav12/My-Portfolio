@@ -133,6 +133,7 @@ export const portfolioData: PortfolioData = {
     heading: "LET'S BUILD\nSOMETHING USEFUL.",
     subheading: "Have an idea, project or opportunity?\nI'd love to hear from you.",
     email: "pratapsinghmanav2006@gmail.com",
+    formspreeEndpoint: "https://formspree.io/f/mppdbjno",
     github: "https://github.com/singhmanav12",
     linkedin: "https://linkedin.com/in/manavendrapratapsingh2006/",
     x: "https://x.com/singhmanav12"

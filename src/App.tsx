@@ -124,6 +124,7 @@ export const App: React.FC = () => {
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
         fallbackEmail={portfolioData.contact.email}
+        formspreeEndpoint={portfolioData.contact.formspreeEndpoint}
       />
     </div>
   );
