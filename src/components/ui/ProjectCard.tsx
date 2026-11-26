@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import type { ProjectItem } from '../../types/portfolio';
+import { ProjectThumbnail } from './ProjectThumbnail';
 
 interface ProjectCardProps {
   project: ProjectItem;
@@ -15,15 +16,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect }) =
   return (
     <div className="glass-card overflow-hidden group hover:border-white/20 transition-all duration-300 flex flex-col">
       <div className="h-64 bg-slate-950 flex items-center justify-center border-b border-white/5 relative overflow-hidden p-6">
-        {project.image ? (
-          <img
-            src={project.image}
-            alt={project.name}
-            className="max-h-36 max-w-[75%] object-contain z-10 drop-shadow-[0_12px_30px_rgba(124,58,237,0.25)] transition-transform duration-300 group-hover:scale-105"
-          />
-        ) : (
-          <p className="text-slate-600 font-mono text-sm z-10">{project.imagePlaceholder}</p>
-        )}
+        <ProjectThumbnail project={project} interactive />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/50" />
       </div>
       <div className="p-8 flex-1 flex flex-col">

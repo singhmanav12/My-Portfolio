@@ -34,6 +34,7 @@ export interface ProjectItem {
   features?: ProjectFeature[];
   tech: string[];
   image?: string;
+  imageBadge?: 'dark' | 'light';
   imagePlaceholder: string;
   link: string;
   github?: string;

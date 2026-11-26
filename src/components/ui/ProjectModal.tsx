@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ExternalLink, X } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import type { ProjectItem } from '../../types/portfolio';
+import { ProjectThumbnail } from './ProjectThumbnail';
 
 interface ProjectModalProps {
   project: ProjectItem | null;
@@ -40,15 +41,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         onClick={(e) => e.stopPropagation()}
       >
         <div className="h-56 bg-slate-950 flex items-center justify-center border-b border-white/10 relative p-6">
-          {project.image ? (
-            <img
-              src={project.image}
-              alt={project.name}
-              className="max-h-36 max-w-[75%] object-contain drop-shadow-[0_12px_30px_rgba(124,58,237,0.25)]"
-            />
-          ) : (
-            <p className="text-slate-500 font-mono text-sm">{project.imagePlaceholder}</p>
-          )}
+          <ProjectThumbnail project={project} />
           <button
             type="button"
             onClick={onClose}

@@ -46,12 +46,29 @@ export const portfolioData: PortfolioData = {
       github: "https://github.com/singhmanav12/Student-360"
     },
     {
-      name: "Civic Issue Platform",
+      name: "CVQ-AI",
       category: "Hackathon",
-      description: "AI-assisted citizen issue verification with location matching and ticket tracking.",
-      tech: ["React", "AI", "Supabase"],
-      imagePlaceholder: "[ Civic Issue Platform Image ]",
-      link: "#"
+      description: "A civic issue reporting platform (deployed web platform & React Native mobile app) where citizens report potholes, broken streetlights, waste, and electrical hazards with AI-powered SLA deadlines and resolution verification.",
+      features: [
+        {
+          title: "AI Severity Classification & Dynamic SLA",
+          description: "Uses Gemini to classify reported issues by risk level — critical hazards like a broken electric wire over a road receive a 3-hour SLA deadline, while standard issues like a non-working streetlight get 24 hours."
+        },
+        {
+          title: "30m GPS Coordinate Verification",
+          description: "Collects GPS coordinates from both the citizen's report photo and the worker's completion photo; the resolution is only accepted if both locations are within 30 meters of each other."
+        },
+        {
+          title: "Gemini Before & After Image Verification",
+          description: "Gemini analyzes both the original issue photo and the worker's post-fix photo to verify the problem was genuinely resolved before marking the ticket as solved."
+        }
+      ],
+      tech: ["React", "React Native", "Gemini API", "Supabase", "Geolocation"],
+      image: "/images/cvq-ai.png",
+      imageBadge: "light",
+      imagePlaceholder: "[ CVQ-AI Image ]",
+      link: "https://cvq-ai.vercel.app/",
+      github: "https://github.com/ykansh/INNOVIK-6.0"
     },
     {
       name: "Smart Agriculture System",
