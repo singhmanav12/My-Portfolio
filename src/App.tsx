@@ -10,6 +10,7 @@ import { Projects } from './components/sections/Projects';
 import { AllProjects } from './components/sections/AllProjects';
 import { Toolkit } from './components/sections/Toolkit';
 import { Experience } from './components/sections/Experience';
+import { Achievements } from './components/sections/Achievements';
 import { Learning } from './components/sections/Learning';
 import { Contact } from './components/sections/Contact';
 
@@ -125,6 +126,7 @@ export const App: React.FC = () => {
             />
             <Toolkit toolkit={portfolioData.toolkit} />
             <Experience experience={portfolioData.experience} />
+            <Achievements achievements={portfolioData.achievements} />
 
             {/* Bottom Learning & Contact Row */}
             <section className="py-24 max-w-7xl mx-auto px-8 border-t border-white/5">

@@ -151,7 +151,7 @@ export const portfolioData: PortfolioData = {
         },
         {
           title: "Hackathons & Rapid Prototyping",
-          description: "Collaborating in technical events like NNOVIK 6.0 and SKITECH INNOTHON to take ideas from zero to working demo."
+          description: "Collaborating in technical events like INNOVIK 6.0 and SKITECH INNOTHON to take ideas from zero to working demo."
         }
       ],
       beyondCode: "[ Share hobbies, interests outside tech, or personal goals you'd like visitors to know about. ]"
@@ -165,21 +165,43 @@ export const portfolioData: PortfolioData = {
   },
   experience: [
     {
-      year: "[DATE]",
-      title: "NNOVIK 6.0",
-      company: "Hackathon",
-      description: "[DESCRIPTION]"
+      year: "[DATE — e.g. Summer 2025]",
+      title: "[INTERNSHIP ROLE]",
+      company: "[COMPANY NAME]",
+      type: "Internship",
+      description: "[Describe what you built, improved, or shipped during your internship.]",
+      tags: ["Placeholder"]
+    },
+    {
+      year: "[DATE — e.g. 2025 – Present]",
+      title: "Freelance Developer",
+      company: "Independent / Client Projects",
+      type: "Freelance",
+      description: "[Describe the client projects, web apps, or solutions you delivered.]",
+      tags: ["Placeholder"]
     },
     {
       year: "[DATE]",
-      title: "SKITECH INNOTHON",
-      company: "Technical Team Member",
+      title: "Technical Team Member",
+      company: "SKITECH INNOTHON",
+      type: "Technical Role",
       description: "[DESCRIPTION]"
+    }
+  ],
+  achievements: [
+    {
+      year: "[DATE]",
+      title: "INNOVIK 6.0",
+      category: "Hackathon",
+      subtitle: "Built CVQ-AI",
+      description: "Collaborated with the team to build CVQ-AI — an AI-verified civic issue reporting platform with Gemini SLA classification and 30m GPS verification.",
+      tags: ["React Native", "Gemini API", "Supabase"]
     },
     {
       year: "[DATE]",
       title: "Project Exhibition",
-      company: "Project Development",
+      category: "Exhibition",
+      subtitle: "Project Development",
       description: "[DESCRIPTION]"
     }
   ],

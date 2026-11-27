@@ -79,7 +79,18 @@ export interface ExperienceItem {
   year: string;
   title: string;
   company: string;
+  type?: string;
   description: string;
+  tags?: string[];
+}
+
+export interface AchievementItem {
+  year: string;
+  title: string;
+  category: string;
+  subtitle: string;
+  description: string;
+  tags?: string[];
 }
 
 export interface ContactData {
@@ -98,6 +109,7 @@ export interface PortfolioData {
   about: AboutData;
   toolkit: ToolkitData;
   experience: ExperienceItem[];
+  achievements: AchievementItem[];
   learning: string[];
   contact: ContactData;
 }

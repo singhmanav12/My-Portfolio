@@ -22,12 +22,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, onOpenContact }) => 
       >
         MPS
       </a>
-      <div className="hidden md:flex items-center gap-8">
+      <div className="hidden md:flex items-center gap-6 lg:gap-8">
         <a href="#" onClick={(e) => handleClick(e, '#')} className="nav-link text-white">Home</a>
         <a href="#about" onClick={(e) => handleClick(e, '#about')} className="nav-link">About</a>
         <a href="#projects" onClick={(e) => handleClick(e, '#projects')} className="nav-link">Projects</a>
         <a href="#skills" onClick={(e) => handleClick(e, '#skills')} className="nav-link">Skills</a>
         <a href="#experience" onClick={(e) => handleClick(e, '#experience')} className="nav-link">Experience</a>
+        <a href="#achievements" onClick={(e) => handleClick(e, '#achievements')} className="nav-link">Achievements</a>
         <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="nav-link">Contact</a>
       </div>
       <button
