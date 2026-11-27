@@ -79,6 +79,7 @@ export interface ExperienceItem {
   year: string;
   title: string;
   company: string;
+  location?: string;
   type?: string;
   description: string;
   tags?: string[];
@@ -91,6 +92,7 @@ export interface AchievementItem {
   subtitle: string;
   description: string;
   tags?: string[];
+  certificateImage?: string;
 }
 
 export interface ContactData {

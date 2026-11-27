@@ -64,7 +64,10 @@ export const Experience: React.FC<ExperienceProps> = ({ experience }) => {
               <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#caff00] transition-colors">
                 {exp.title}
               </h3>
-              <p className="text-sm font-medium text-slate-300 mt-1 mb-3">{exp.company}</p>
+              <p className="text-sm font-medium text-slate-300 mt-1 mb-3">
+                {exp.company}
+                {exp.location && <span className="text-slate-500 font-normal"> &middot; {exp.location}</span>}
+              </p>
               <p className="text-sm text-slate-400 leading-relaxed max-w-3xl">{exp.description}</p>
 
               {exp.tags && exp.tags.length > 0 && (

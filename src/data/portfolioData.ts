@@ -151,7 +151,7 @@ export const portfolioData: PortfolioData = {
         },
         {
           title: "Hackathons & Rapid Prototyping",
-          description: "Collaborating in technical events like INNOVIK 6.0 and SKITECH INNOTHON to take ideas from zero to working demo."
+          description: "Collaborating in technical events like INNOVIK 6.0 and SKITECH INNOTHON 3.0 to take ideas from zero to working demo."
         }
       ],
       beyondCode: "[ Share hobbies, interests outside tech, or personal goals you'd like visitors to know about. ]"
@@ -165,30 +165,42 @@ export const portfolioData: PortfolioData = {
   },
   experience: [
     {
-      year: "[DATE — e.g. Summer 2025]",
-      title: "[INTERNSHIP ROLE]",
-      company: "[COMPANY NAME]",
-      type: "Internship",
-      description: "[Describe what you built, improved, or shipped during your internship.]",
-      tags: ["Placeholder"]
-    },
-    {
-      year: "[DATE — e.g. 2025 – Present]",
-      title: "Freelance Developer",
-      company: "Independent / Client Projects",
+      year: "May 2026 - Present",
+      title: "Full Stack Engineer",
+      company: "Golden Krust",
+      location: "Remote · Dibrugarh East, Assam",
       type: "Freelance",
-      description: "[Describe the client projects, web apps, or solutions you delivered.]",
-      tags: ["Placeholder"]
+      description: "Architected and built an e-commerce platform using React 19, TypeScript, and Python (Django REST Framework) with Vite build tooling and PostgreSQL.",
+      tags: ["React 19", "TypeScript", "Django REST Framework", "PostgreSQL", "Vite"]
     },
     {
-      year: "[DATE]",
-      title: "Technical Team Member",
-      company: "SKITECH INNOTHON",
+      year: "Aug 2026 - Oct 2026",
+      title: "Information Technology Intern",
+      company: "GAOTek Inc.",
+      location: "Remote",
+      type: "Internship",
+      description: "Contributed to the Information and Technology team during a 3-month remote internship and earned the Best Intern of the Week Certificate of Achievement for teamwork, commitment, and consistent performance.",
+      tags: ["Information Technology", "Team Collaboration"]
+    },
+    {
+      year: "Feb 2026 - Present",
+      title: "Technical Lead",
+      company: "SKITECH INNOTHON 3.0 · SKITM, Indore",
+      location: "Greater Indore Area",
       type: "Technical Role",
-      description: "[DESCRIPTION]"
+      description: "Serving as Technical Lead for SKITECH INNOTHON 3.0 at SKITM, Indore."
     }
   ],
   achievements: [
+    {
+      year: "Oct 2026",
+      title: "Best Intern of the Week",
+      category: "Award",
+      subtitle: "GAOTek Inc. · Information & Technology Team",
+      description: "Awarded Certificate of Achievement (ID: GAO-MANAVENDRA-2026010023) for outstanding teamwork, commitment, and consistent performance during the IT internship.",
+      tags: ["Certificate", "Best Performing Intern"],
+      certificateImage: "/images/gaotek-certificate.jpg"
+    },
     {
       year: "[DATE]",
       title: "INNOVIK 6.0",
