@@ -92,6 +92,25 @@ export const App: React.FC = () => {
     }
   };
 
+  const handleStatClick = (target: string) => {
+    if (target === ALL_PROJECTS_HASH) {
+      handleOpenSubView(ALL_PROJECTS_HASH, 'all-projects');
+      return;
+    }
+    if (target === ALL_CERTIFICATIONS_HASH) {
+      handleOpenSubView(ALL_CERTIFICATIONS_HASH, 'all-certifications');
+      return;
+    }
+    if (view !== 'portfolio') {
+      handleBackToPortfolio(target);
+      return;
+    }
+    const element = document.querySelector(target);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-50 font-sans selection:bg-[#caff00]/30 overflow-x-hidden">
       {/* Interactive Background Canvas Grid */}
@@ -116,6 +135,7 @@ export const App: React.FC = () => {
             learning={portfolioData.learning}
             onBack={() => handleBackToPortfolio('#about')}
             onOpenContact={() => setIsContactOpen(true)}
+            onStatClick={handleStatClick}
           />
         ) : view === 'all-certifications' ? (
           <AllCertifications
@@ -128,6 +148,7 @@ export const App: React.FC = () => {
             <About
               about={portfolioData.about}
               onMoreAbout={() => handleOpenSubView(ABOUT_ME_HASH, 'about-me')}
+              onStatClick={handleStatClick}
             />
             <Projects
               projects={portfolioData.projects}

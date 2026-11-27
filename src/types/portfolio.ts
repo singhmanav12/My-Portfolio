@@ -43,6 +43,7 @@ export interface ProjectItem {
 export interface StatItem {
   value: string;
   label: string;
+  target?: string;
 }
 
 export interface AboutFocusArea {

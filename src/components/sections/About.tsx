@@ -1,13 +1,15 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import type { AboutData } from '../../types/portfolio';
+import { StatsStrip } from '../ui/StatsStrip';
 
 interface AboutProps {
   about: AboutData;
   onMoreAbout: () => void;
+  onStatClick: (target: string) => void;
 }
 
-export const About: React.FC<AboutProps> = ({ about, onMoreAbout }) => {
+export const About: React.FC<AboutProps> = ({ about, onMoreAbout, onStatClick }) => {
   return (
     <section id="about" className="py-24 max-w-7xl mx-auto px-8">
       <div className="flex flex-col lg:flex-row gap-16">
@@ -29,18 +31,7 @@ export const About: React.FC<AboutProps> = ({ about, onMoreAbout }) => {
             {about.text}
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-y border-white/10">
-            {about.stats.map((stat, idx) => (
-              <div key={idx} className="flex flex-col border-l border-white/10 pl-6 first:border-0 first:pl-0">
-                <span className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 tracking-tighter break-words">
-                  {stat.value}
-                </span>
-                <span className="text-sm text-slate-400 max-w-[200px] leading-snug">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
+          <StatsStrip stats={about.stats} onStatClick={onStatClick} />
 
           <div className="glass-card p-8 border-l-4 border-l-[#caff00] relative">
             <span className="text-[#caff00] text-6xl absolute -top-4 -left-6 font-serif">"</span>
@@ -62,4 +53,3 @@ export const About: React.FC<AboutProps> = ({ about, onMoreAbout }) => {
     </section>
   );
 };
-

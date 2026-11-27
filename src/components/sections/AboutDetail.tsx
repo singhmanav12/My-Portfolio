@@ -1,12 +1,14 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight, Compass, Download, GraduationCap, Sparkles } from 'lucide-react';
 import type { AboutData } from '../../types/portfolio';
+import { StatsStrip } from '../ui/StatsStrip';
 
 interface AboutDetailProps {
   about: AboutData;
   learning: string[];
   onBack: () => void;
   onOpenContact: () => void;
+  onStatClick: (target: string) => void;
 }
 
 export const AboutDetail: React.FC<AboutDetailProps> = ({
@@ -14,6 +16,7 @@ export const AboutDetail: React.FC<AboutDetailProps> = ({
   learning,
   onBack,
   onOpenContact,
+  onStatClick,
 }) => {
   const { detail } = about;
 
@@ -47,18 +50,7 @@ export const AboutDetail: React.FC<AboutDetailProps> = ({
       </div>
 
       {/* Stats Strip */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 mb-14 border-y border-white/10">
-        {about.stats.map((stat, idx) => (
-          <div key={idx} className="flex flex-col border-l border-white/10 pl-6 first:border-0 first:pl-0">
-            <span className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tighter break-words">
-              {stat.value}
-            </span>
-            <span className="text-sm text-slate-400 leading-snug">
-              {stat.label}
-            </span>
-          </div>
-        ))}
-      </div>
+      <StatsStrip stats={about.stats} onStatClick={onStatClick} className="mb-14" />
 
       {/* Story + Quote */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14">

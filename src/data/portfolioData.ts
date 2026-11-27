@@ -122,9 +122,9 @@ export const portfolioData: PortfolioData = {
   about: {
     text: "I am a Computer Science Engineering student interested in software development, cloud computing, DevOps and AI. I enjoy turning ideas into working products, experimenting with new technologies, and building projects through hackathons and real-world challenges.",
     stats: [
-      { value: "9", label: "Projects / Experiments" },
-      { value: "[COUNT]", label: "Hackathons & Technical Events Attended" },
-      { value: "[COUNT]", label: "Certifications" }
+      { value: "9", label: "Projects / Experiments", target: "#all-projects" },
+      { value: "[COUNT]", label: "Hackathons & Technical Events Attended", target: "#achievements" },
+      { value: "[COUNT]", label: "Certifications", target: "#all-certifications" }
     ],
     quote: "I don't just write code. I like building things that actually work.",
     detail: {
