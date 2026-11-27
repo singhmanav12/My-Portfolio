@@ -99,6 +99,18 @@ export interface AchievementItem {
   certificateImage?: string;
 }
 
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  category: string;
+  issueDate: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  image?: string;
+  description: string;
+  skills?: string[];
+}
+
 export interface ContactData {
   heading: string;
   subheading: string;
@@ -116,6 +128,7 @@ export interface PortfolioData {
   toolkit: ToolkitData;
   experience: ExperienceItem[];
   achievements: AchievementItem[];
+  certifications: CertificationItem[];
   learning: string[];
   contact: ContactData;
 }

@@ -11,17 +11,21 @@ import { AllProjects } from './components/sections/AllProjects';
 import { Toolkit } from './components/sections/Toolkit';
 import { Experience } from './components/sections/Experience';
 import { Achievements } from './components/sections/Achievements';
+import { Certifications } from './components/sections/Certifications';
+import { AllCertifications } from './components/sections/AllCertifications';
 import { Learning } from './components/sections/Learning';
 import { Contact } from './components/sections/Contact';
 
-type AppView = 'portfolio' | 'all-projects' | 'about-me';
+type AppView = 'portfolio' | 'all-projects' | 'about-me' | 'all-certifications';
 
 const ALL_PROJECTS_HASH = '#all-projects';
 const ABOUT_ME_HASH = '#about-me';
+const ALL_CERTIFICATIONS_HASH = '#all-certifications';
 
 const getViewFromHash = (hash: string): AppView => {
   if (hash === ALL_PROJECTS_HASH) return 'all-projects';
   if (hash === ABOUT_ME_HASH) return 'about-me';
+  if (hash === ALL_CERTIFICATIONS_HASH) return 'all-certifications';
   return 'portfolio';
 };
 
@@ -113,6 +117,11 @@ export const App: React.FC = () => {
             onBack={() => handleBackToPortfolio('#about')}
             onOpenContact={() => setIsContactOpen(true)}
           />
+        ) : view === 'all-certifications' ? (
+          <AllCertifications
+            certifications={portfolioData.certifications}
+            onBack={() => handleBackToPortfolio('#certifications')}
+          />
         ) : (
           <>
             <Hero hero={portfolioData.hero} />
@@ -127,6 +136,12 @@ export const App: React.FC = () => {
             <Toolkit toolkit={portfolioData.toolkit} />
             <Experience experience={portfolioData.experience} />
             <Achievements achievements={portfolioData.achievements} />
+            <Certifications
+              certifications={portfolioData.certifications}
+              onViewAll={() =>
+                handleOpenSubView(ALL_CERTIFICATIONS_HASH, 'all-certifications')
+              }
+            />
 
             {/* Bottom Learning & Contact Row */}
             <section className="py-24 max-w-7xl mx-auto px-8 border-t border-white/5">

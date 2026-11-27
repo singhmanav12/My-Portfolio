@@ -122,9 +122,9 @@ export const portfolioData: PortfolioData = {
   about: {
     text: "I am a Computer Science Engineering student interested in software development, cloud computing, DevOps and AI. I enjoy turning ideas into working products, experimenting with new technologies, and building projects through hackathons and real-world challenges.",
     stats: [
-      { value: "[PROJECT COUNT]", label: "Projects / Experiments" },
-      { value: "[HACKATHON COUNT]", label: "Hackathons / Technical Events" },
-      { value: "[YEARS LEARNING]", label: "Things I'm Still Learning" }
+      { value: "9", label: "Projects / Experiments" },
+      { value: "[COUNT]", label: "Hackathons & Technical Events Attended" },
+      { value: "[COUNT]", label: "Certifications" }
     ],
     quote: "I don't just write code. I like building things that actually work.",
     detail: {
@@ -240,6 +240,48 @@ export const portfolioData: PortfolioData = {
       category: "Exhibition",
       subtitle: "Project Development",
       description: "[DESCRIPTION]"
+    }
+  ],
+  certifications: [
+    {
+      title: "[ Cloud Certification — e.g. AWS Cloud Practitioner ]",
+      issuer: "[ ISSUER — e.g. Amazon Web Services ]",
+      category: "Cloud",
+      issueDate: "[DATE]",
+      credentialId: "[CREDENTIAL ID]",
+      credentialUrl: "#",
+      description: "[Placeholder — Add certification focus areas, cloud services covered, and key competencies validated.]",
+      skills: ["Cloud Computing", "AWS", "Architecture"]
+    },
+    {
+      title: "[ Programming Language Certification — e.g. Python / Java / Go ]",
+      issuer: "[ ISSUER — e.g. Coursera / HackerRank / Udemy ]",
+      category: "Languages",
+      issueDate: "[DATE]",
+      credentialId: "[CREDENTIAL ID]",
+      credentialUrl: "#",
+      description: "[Placeholder — Add language fundamentals, data structures, or problem-solving topics covered.]",
+      skills: ["Python", "Data Structures", "Algorithms"]
+    },
+    {
+      title: "[ DevOps Certification — e.g. Docker & Kubernetes Fundamentals ]",
+      issuer: "[ ISSUER — e.g. Linux Foundation / KodeKloud ]",
+      category: "DevOps",
+      issueDate: "[DATE]",
+      credentialId: "[CREDENTIAL ID]",
+      credentialUrl: "#",
+      description: "[Placeholder — Add containerization, CI/CD, orchestration, or infrastructure automation topics.]",
+      skills: ["Docker", "Kubernetes", "CI/CD"]
+    },
+    {
+      title: "[ Backend & Databases Certification — e.g. PostgreSQL / REST APIs ]",
+      issuer: "[ ISSUER ]",
+      category: "Web & Backend",
+      issueDate: "[DATE]",
+      credentialId: "[CREDENTIAL ID]",
+      credentialUrl: "#",
+      description: "[Placeholder — Add full-stack, API design, or relational database topics validated.]",
+      skills: ["PostgreSQL", "REST APIs", "Backend"]
     }
   ],
   learning: [

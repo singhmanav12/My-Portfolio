@@ -35,7 +35,7 @@ export const About: React.FC<AboutProps> = ({ about, onMoreAbout }) => {
                 <span className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 tracking-tighter break-words">
                   {stat.value}
                 </span>
-                <span className="text-sm text-slate-400 max-w-[150px] leading-snug">
+                <span className="text-sm text-slate-400 max-w-[200px] leading-snug">
                   {stat.label}
                 </span>
               </div>
