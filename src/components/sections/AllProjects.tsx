@@ -9,6 +9,16 @@ interface AllProjectsProps {
   onBack: () => void;
 }
 
+const CATEGORY_DESCRIPTIONS: Record<string, string> = {
+  All: "A complete showcase of real-world problem-solving applications, cloud projects, and builds I've created independently or with my team.",
+  'Real-World Builds':
+    'Practical, real-world problem-solving applications and tools built independently or alongside my team during hackathons.',
+  'Cloud / DevOps':
+    'Cloud infrastructure, containerization, and automation projects focused on deployment and reliability.',
+  Sample:
+    'Sample placeholder entries reserved for upcoming projects and experiments.',
+};
+
 export const AllProjects: React.FC<AllProjectsProps> = ({ projects, onBack }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
@@ -48,7 +58,7 @@ export const AllProjects: React.FC<AllProjectsProps> = ({ projects, onBack }) =>
       </div>
 
       {/* Category Filters */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-6">
         {categories.map((category) => {
           const active = selectedCategory === category;
           return (
@@ -66,6 +76,17 @@ export const AllProjects: React.FC<AllProjectsProps> = ({ projects, onBack }) =>
             </button>
           );
         })}
+      </div>
+
+      {/* Active Filter Context */}
+      <div className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 px-4 py-3 rounded-xl bg-slate-900/50 border border-white/5">
+        <p className="text-sm text-slate-300">
+          {CATEGORY_DESCRIPTIONS[selectedCategory] ??
+            `Showing projects in the ${selectedCategory} category.`}
+        </p>
+        <span className="text-xs font-mono text-slate-500 shrink-0">
+          {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+        </span>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -23,7 +23,7 @@ export const portfolioData: PortfolioData = {
   projects: [
     {
       name: "Student 360",
-      category: "Web Extension",
+      category: "Real-World Builds",
       description: "A browser extension that blocks short-form content, detects real-time distractions like phone usage or daydreaming, and analyzes productive vs. distracting study sessions with AI.",
       features: [
         {
@@ -47,7 +47,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       name: "CVQ-AI",
-      category: "Hackathon",
+      category: "Real-World Builds",
       description: "A civic issue reporting platform (deployed web platform & React Native mobile app) where citizens report potholes, broken streetlights, waste, and electrical hazards with AI-powered SLA deadlines and resolution verification.",
       features: [
         {
@@ -72,7 +72,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       name: "Smart Agriculture System",
-      category: "Hackathon",
+      category: "Real-World Builds",
       description: "Placeholder — DO NOT invent features.",
       tech: ["Placeholder"],
       imagePlaceholder: "[ Smart Ag System Image ]",
