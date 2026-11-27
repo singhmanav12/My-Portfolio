@@ -171,6 +171,15 @@ export const portfolioData: PortfolioData = {
       location: "Remote · Dibrugarh East, Assam",
       type: "Freelance",
       description: "Architected and built an e-commerce platform using React 19, TypeScript, and Python (Django REST Framework) with Vite build tooling and PostgreSQL.",
+      responsibilities: [
+        "Architected and built an end-to-end e-commerce platform from the ground up.",
+        "Developed the responsive frontend interface using React 19, TypeScript, and Vite build tooling.",
+        "Implemented backend REST APIs and relational data models with Python (Django REST Framework) and PostgreSQL.",
+        "[ Add specific modules you delivered, e.g. cart/checkout, auth, admin dashboard, or deployment details. ]"
+      ],
+      highlights: [
+        "Delivered a full-stack production architecture spanning frontend, REST APIs, and PostgreSQL database."
+      ],
       tags: ["React 19", "TypeScript", "Django REST Framework", "PostgreSQL", "Vite"]
     },
     {
@@ -180,7 +189,15 @@ export const portfolioData: PortfolioData = {
       location: "Remote",
       type: "Internship",
       description: "Contributed to the Information and Technology team during a 3-month remote internship and earned the Best Intern of the Week Certificate of Achievement for teamwork, commitment, and consistent performance.",
-      tags: ["Information Technology", "Team Collaboration"]
+      responsibilities: [
+        "Collaborated remotely within the Information and Technology team over a 3-month internship.",
+        "[ Add specific technical tasks, tools, or deliverables you worked on during the internship. ]"
+      ],
+      highlights: [
+        "Awarded Best Intern of the Week Certificate of Achievement (Oct 25, 2026 · ID: GAO-MANAVENDRA-2026010023) for outstanding teamwork, commitment, and consistent performance."
+      ],
+      tags: ["Information Technology", "Team Collaboration"],
+      certificateImage: "/images/gaotek-certificate.jpg"
     },
     {
       year: "Feb 2026 - Present",
@@ -188,7 +205,15 @@ export const portfolioData: PortfolioData = {
       company: "SKITECH INNOTHON 3.0 · SKITM, Indore",
       location: "Greater Indore Area",
       type: "Technical Role",
-      description: "Serving as Technical Lead for SKITECH INNOTHON 3.0 at SKITM, Indore."
+      description: "Serving as Technical Lead for SKITECH INNOTHON 3.0 at SKITM, Indore.",
+      responsibilities: [
+        "Leading technical coordination and execution for SKITECH INNOTHON 3.0 at SKITM, Indore.",
+        "[ Add key responsibilities such as guiding participant teams, managing technical infrastructure, or coordinating evaluations. ]"
+      ],
+      highlights: [
+        "[ Add any event impact or milestones — e.g. number of teams supported or systems managed. ]"
+      ],
+      tags: ["Technical Leadership", "Event Operations"]
     }
   ],
   achievements: [

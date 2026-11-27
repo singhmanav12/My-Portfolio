@@ -1,12 +1,15 @@
-import React from 'react';
-import { Briefcase } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Briefcase } from 'lucide-react';
 import type { ExperienceItem } from '../../types/portfolio';
+import { ExperienceModal } from '../ui/ExperienceModal';
 
 interface ExperienceProps {
   experience: ExperienceItem[];
 }
 
 export const Experience: React.FC<ExperienceProps> = ({ experience }) => {
+  const [selectedExperience, setSelectedExperience] = useState<ExperienceItem | null>(null);
+
   return (
     <section id="experience" className="py-24 max-w-7xl mx-auto px-8">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
@@ -44,7 +47,11 @@ export const Experience: React.FC<ExperienceProps> = ({ experience }) => {
             {/* Timeline Dot centered cleanly on the vertical rail */}
             <div className="absolute -left-[27px] md:-left-[31px] top-7 w-3.5 h-3.5 rounded-full bg-[#0a0a0a] border-2 border-slate-600 group-hover:border-[#caff00] group-hover:shadow-[0_0_12px_#caff00] z-10 transition-all" />
 
-            <div className="glass-card p-6 md:p-8 hover:border-[#caff00]/40 transition-all duration-300">
+            <button
+              type="button"
+              onClick={() => setSelectedExperience(exp)}
+              className="w-full text-left glass-card p-6 md:p-8 hover:border-[#caff00]/40 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer block"
+            >
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-3">
                   <span className="w-9 h-9 rounded-xl bg-slate-950 border border-white/10 flex items-center justify-center text-[#caff00]">
@@ -70,9 +77,9 @@ export const Experience: React.FC<ExperienceProps> = ({ experience }) => {
               </p>
               <p className="text-sm text-slate-400 leading-relaxed max-w-3xl">{exp.description}</p>
 
-              {exp.tags && exp.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-white/5">
-                  {exp.tags.map((tag, i) => (
+              <div className="flex flex-wrap items-center justify-between gap-4 mt-5 pt-4 border-t border-white/5">
+                <div className="flex flex-wrap gap-2">
+                  {exp.tags?.map((tag, i) => (
                     <span
                       key={i}
                       className="text-xs font-mono text-slate-400 bg-black/50 px-2.5 py-1 rounded border border-white/5"
@@ -81,11 +88,19 @@ export const Experience: React.FC<ExperienceProps> = ({ experience }) => {
                     </span>
                   ))}
                 </div>
-              )}
-            </div>
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-[#caff00] group-hover:gap-2.5 transition-all ml-auto">
+                  Role Overview <ArrowRight size={14} />
+                </span>
+              </div>
+            </button>
           </div>
         ))}
       </div>
+
+      <ExperienceModal
+        experience={selectedExperience}
+        onClose={() => setSelectedExperience(null)}
+      />
     </section>
   );
 };

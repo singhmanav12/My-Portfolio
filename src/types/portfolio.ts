@@ -82,7 +82,11 @@ export interface ExperienceItem {
   location?: string;
   type?: string;
   description: string;
+  responsibilities?: string[];
+  highlights?: string[];
   tags?: string[];
+  certificateImage?: string;
+  link?: string;
 }
 
 export interface AchievementItem {
